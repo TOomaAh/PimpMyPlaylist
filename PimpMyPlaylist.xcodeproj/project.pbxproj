@@ -7,15 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7AC8308825B3236D00BBA7C2 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8308625B3236D00BBA7C2 /* MenuViewController.swift */; };
-		7AC8308925B3236D00BBA7C2 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC8308725B3236D00BBA7C2 /* MenuViewController.xib */; };
 		7AC8308E25B3294F00BBA7C2 /* ResearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8308C25B3294F00BBA7C2 /* ResearchViewController.swift */; };
 		7AC8308F25B3294F00BBA7C2 /* ResearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC8308D25B3294F00BBA7C2 /* ResearchViewController.xib */; };
-		7AC8309625B3297100BBA7C2 /* DeletePlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8309425B3297100BBA7C2 /* DeletePlaylistViewController.swift */; };
-		7AC8309725B3297100BBA7C2 /* DeletePlaylistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC8309525B3297100BBA7C2 /* DeletePlaylistViewController.xib */; };
-		7AC8309C25B3298200BBA7C2 /* EditPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8309A25B3298200BBA7C2 /* EditPlaylistViewController.swift */; };
-		7AC8309D25B3298200BBA7C2 /* EditPlaylistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC8309B25B3298200BBA7C2 /* EditPlaylistViewController.xib */; };
-		7AC830A025B3355D00BBA7C2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8309F25B3355D00BBA7C2 /* ListViewController.swift */; };
+		7AC8309C25B3298200BBA7C2 /* EditWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8309A25B3298200BBA7C2 /* EditWatchlistViewController.swift */; };
+		7AC8309D25B3298200BBA7C2 /* EditWatchlistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC8309B25B3298200BBA7C2 /* EditWatchlistViewController.xib */; };
+		7AC830A925B33DE100BBA7C2 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC830A725B33DE100BBA7C2 /* MenuViewController.swift */; };
+		7AC830AA25B33DE100BBA7C2 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC830A825B33DE100BBA7C2 /* MenuViewController.xib */; };
 		E924FE1E25AB6C060065F78D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924FE1D25AB6C060065F78D /* AppDelegate.swift */; };
 		E924FE2725AB6C070065F78D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E924FE2625AB6C070065F78D /* Assets.xcassets */; };
 		E924FE2A25AB6C070065F78D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E924FE2825AB6C070065F78D /* LaunchScreen.storyboard */; };
@@ -24,15 +21,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7AC8308625B3236D00BBA7C2 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		7AC8308725B3236D00BBA7C2 /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		7AC8308C25B3294F00BBA7C2 /* ResearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchViewController.swift; sourceTree = "<group>"; };
 		7AC8308D25B3294F00BBA7C2 /* ResearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResearchViewController.xib; sourceTree = "<group>"; };
-		7AC8309425B3297100BBA7C2 /* DeletePlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePlaylistViewController.swift; sourceTree = "<group>"; };
-		7AC8309525B3297100BBA7C2 /* DeletePlaylistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeletePlaylistViewController.xib; sourceTree = "<group>"; };
-		7AC8309A25B3298200BBA7C2 /* EditPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlaylistViewController.swift; sourceTree = "<group>"; };
-		7AC8309B25B3298200BBA7C2 /* EditPlaylistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditPlaylistViewController.xib; sourceTree = "<group>"; };
-		7AC8309F25B3355D00BBA7C2 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		7AC8309A25B3298200BBA7C2 /* EditWatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWatchlistViewController.swift; sourceTree = "<group>"; };
+		7AC8309B25B3298200BBA7C2 /* EditWatchlistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditWatchlistViewController.xib; sourceTree = "<group>"; };
+		7AC830A725B33DE100BBA7C2 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		7AC830A825B33DE100BBA7C2 /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		E924FE1A25AB6C060065F78D /* PimpMyPlaylist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PimpMyPlaylist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E924FE1D25AB6C060065F78D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E924FE2625AB6C070065F78D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,15 +47,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7AC8308525B3235E00BBA7C2 /* MenuView */ = {
-			isa = PBXGroup;
-			children = (
-				7AC8308625B3236D00BBA7C2 /* MenuViewController.swift */,
-				7AC8308725B3236D00BBA7C2 /* MenuViewController.xib */,
-			);
-			path = MenuView;
-			sourceTree = "<group>";
-		};
 		7AC8308B25B3293C00BBA7C2 /* ResearchView */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,22 +56,22 @@
 			path = ResearchView;
 			sourceTree = "<group>";
 		};
-		7AC8309225B3295500BBA7C2 /* EditPlaylistView */ = {
+		7AC8309225B3295500BBA7C2 /* EditWatchlistView */ = {
 			isa = PBXGroup;
 			children = (
-				7AC8309A25B3298200BBA7C2 /* EditPlaylistViewController.swift */,
-				7AC8309B25B3298200BBA7C2 /* EditPlaylistViewController.xib */,
+				7AC8309A25B3298200BBA7C2 /* EditWatchlistViewController.swift */,
+				7AC8309B25B3298200BBA7C2 /* EditWatchlistViewController.xib */,
 			);
-			path = EditPlaylistView;
+			path = EditWatchlistView;
 			sourceTree = "<group>";
 		};
-		7AC8309325B3296000BBA7C2 /* DeletePlaylistView */ = {
+		7AC830A625B33DCF00BBA7C2 /* MenuView */ = {
 			isa = PBXGroup;
 			children = (
-				7AC8309425B3297100BBA7C2 /* DeletePlaylistViewController.swift */,
-				7AC8309525B3297100BBA7C2 /* DeletePlaylistViewController.xib */,
+				7AC830A725B33DE100BBA7C2 /* MenuViewController.swift */,
+				7AC830A825B33DE100BBA7C2 /* MenuViewController.xib */,
 			);
-			path = DeletePlaylistView;
+			path = MenuView;
 			sourceTree = "<group>";
 		};
 		E924FE1125AB6C060065F78D = {
@@ -113,7 +98,6 @@
 				E924FE2625AB6C070065F78D /* Assets.xcassets */,
 				E924FE2825AB6C070065F78D /* LaunchScreen.storyboard */,
 				E924FE2B25AB6C070065F78D /* Info.plist */,
-				7AC8309F25B3355D00BBA7C2 /* ListViewController.swift */,
 			);
 			path = PimpMyPlaylist;
 			sourceTree = "<group>";
@@ -121,10 +105,9 @@
 		E924FE3425AB6DE60065F78D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7AC8309325B3296000BBA7C2 /* DeletePlaylistView */,
-				7AC8309225B3295500BBA7C2 /* EditPlaylistView */,
+				7AC830A625B33DCF00BBA7C2 /* MenuView */,
+				7AC8309225B3295500BBA7C2 /* EditWatchlistView */,
 				7AC8308B25B3293C00BBA7C2 /* ResearchView */,
-				7AC8308525B3235E00BBA7C2 /* MenuView */,
 				E924FE3525AB6DF00065F78D /* HomeView */,
 			);
 			path = View;
@@ -196,13 +179,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AC8309725B3297100BBA7C2 /* DeletePlaylistViewController.xib in Resources */,
 				E924FE2A25AB6C070065F78D /* LaunchScreen.storyboard in Resources */,
+				7AC830AA25B33DE100BBA7C2 /* MenuViewController.xib in Resources */,
 				7AC8308F25B3294F00BBA7C2 /* ResearchViewController.xib in Resources */,
 				E924FE2725AB6C070065F78D /* Assets.xcassets in Resources */,
 				E924FE3925AB6E0D0065F78D /* HomeViewController.xib in Resources */,
-				7AC8308925B3236D00BBA7C2 /* MenuViewController.xib in Resources */,
-				7AC8309D25B3298200BBA7C2 /* EditPlaylistViewController.xib in Resources */,
+				7AC8309D25B3298200BBA7C2 /* EditWatchlistViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,13 +195,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AC8309C25B3298200BBA7C2 /* EditPlaylistViewController.swift in Sources */,
+				7AC8309C25B3298200BBA7C2 /* EditWatchlistViewController.swift in Sources */,
+				7AC830A925B33DE100BBA7C2 /* MenuViewController.swift in Sources */,
 				E924FE1E25AB6C060065F78D /* AppDelegate.swift in Sources */,
-				7AC8308825B3236D00BBA7C2 /* MenuViewController.swift in Sources */,
 				E924FE3825AB6E0D0065F78D /* HomeViewController.swift in Sources */,
 				7AC8308E25B3294F00BBA7C2 /* ResearchViewController.swift in Sources */,
-				7AC8309625B3297100BBA7C2 /* DeletePlaylistViewController.swift in Sources */,
-				7AC830A025B3355D00BBA7C2 /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
