@@ -10,9 +10,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController" customModule="PimpMyPlaylist" customModuleProvider="target">
             <connections>
-                <outlet property="addSongButton" destination="2gv-3Q-n2O" id="wnv-SX-8d4"/>
-                <outlet property="deletePlaylistButton" destination="bP4-Ql-874" id="5wO-K1-U3g"/>
-                <outlet property="editPlaylistButton" destination="OTc-m8-uMK" id="d4n-8n-9Su"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,59 +18,40 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTc-m8-uMK">
-                    <rect key="frame" x="126.5" y="360" width="161" height="38"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzn-rV-kAF">
+                    <rect key="frame" x="146.5" y="344" width="121" height="38"/>
                     <color key="backgroundColor" systemColor="secondaryLabelColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="38" id="NQ7-oj-jLY"/>
-                        <constraint firstAttribute="width" constant="161" id="dFu-bo-BNG"/>
-                    </constraints>
                     <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                    <state key="normal" title="Editer Playlist">
+                    <state key="normal" title="Search movies">
                         <color key="titleColor" systemColor="systemOrangeColor"/>
                     </state>
                     <connections>
-                        <action selector="editPlaylistNext:" destination="-1" eventType="touchUpInside" id="xO2-oJ-zpw"/>
+                        <action selector="searchMoviesNext:" destination="-1" eventType="touchUpInside" id="Kmi-OE-eX5"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2gv-3Q-n2O">
-                    <rect key="frame" x="126.5" y="302" width="161" height="38"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbh-nB-WvV">
+                    <rect key="frame" x="146.5" y="402" width="121" height="38"/>
                     <color key="backgroundColor" systemColor="secondaryLabelColor"/>
                     <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                    <state key="normal" title="Ajouter une chanson">
+                    <state key="normal" title="Edit Watchlist">
                         <color key="titleColor" systemColor="systemOrangeColor"/>
                     </state>
                     <connections>
-                        <action selector="addSongNext:" destination="-1" eventType="touchUpInside" id="KVo-r5-1r0"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bP4-Ql-874">
-                    <rect key="frame" x="126.5" y="418" width="161" height="38"/>
-                    <color key="backgroundColor" systemColor="secondaryLabelColor"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="161" id="2xF-PO-7tq"/>
-                        <constraint firstAttribute="height" constant="38" id="PGc-Z8-se2"/>
-                    </constraints>
-                    <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                    <state key="normal" title="Supprimer Playlist">
-                        <color key="titleColor" systemColor="systemOrangeColor"/>
-                    </state>
-                    <connections>
-                        <action selector="deletePlaylistNext:" destination="-1" eventType="touchUpInside" id="Pna-wb-q02"/>
+                        <action selector="editWatchlistNext:" destination="-1" eventType="touchUpInside" id="NG4-bG-46N"/>
                     </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="labelColor"/>
             <constraints>
-                <constraint firstItem="bP4-Ql-874" firstAttribute="top" secondItem="OTc-m8-uMK" secondAttribute="bottom" constant="20" id="TtQ-Zt-C9x"/>
-                <constraint firstItem="bP4-Ql-874" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="W4Z-NB-rzv"/>
-                <constraint firstItem="2gv-3Q-n2O" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="258" id="Y8R-4j-8De"/>
-                <constraint firstItem="OTc-m8-uMK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eyt-Rw-H3f"/>
-                <constraint firstItem="2gv-3Q-n2O" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="pJs-wv-7IJ"/>
-                <constraint firstItem="OTc-m8-uMK" firstAttribute="top" secondItem="2gv-3Q-n2O" secondAttribute="bottom" constant="20" id="y0Z-rO-Awv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gbh-nB-WvV" secondAttribute="trailing" constant="146.5" id="1Zz-Og-ndn"/>
+                <constraint firstItem="fzn-rV-kAF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="INw-Uk-p1z"/>
+                <constraint firstItem="gbh-nB-WvV" firstAttribute="top" secondItem="fzn-rV-kAF" secondAttribute="bottom" constant="20" id="JkS-Q2-Fz0"/>
+                <constraint firstItem="gbh-nB-WvV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="146.5" id="SzU-t8-ShI"/>
+                <constraint firstItem="gbh-nB-WvV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="buM-5V-bFQ"/>
+                <constraint firstItem="fzn-rV-kAF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="300" id="tDy-5d-Q6O"/>
             </constraints>
-            <point key="canvasLocation" x="125" y="130"/>
+            <point key="canvasLocation" x="140.57971014492756" y="107.8125"/>
         </view>
     </objects>
     <resources>
