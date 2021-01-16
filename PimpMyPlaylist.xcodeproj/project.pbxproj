@@ -16,6 +16,7 @@
 		7AC8309C25B3298200BBA7C2 /* EditPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8309A25B3298200BBA7C2 /* EditPlaylistViewController.swift */; };
 		7AC8309D25B3298200BBA7C2 /* EditPlaylistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC8309B25B3298200BBA7C2 /* EditPlaylistViewController.xib */; };
 		7AC830A025B3355D00BBA7C2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8309F25B3355D00BBA7C2 /* ListViewController.swift */; };
+		D3C2B22825B339EC002B3702 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C2B22725B339EC002B3702 /* Movie.swift */; };
 		E924FE1E25AB6C060065F78D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924FE1D25AB6C060065F78D /* AppDelegate.swift */; };
 		E924FE2725AB6C070065F78D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E924FE2625AB6C070065F78D /* Assets.xcassets */; };
 		E924FE2A25AB6C070065F78D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E924FE2825AB6C070065F78D /* LaunchScreen.storyboard */; };
@@ -33,6 +34,7 @@
 		7AC8309A25B3298200BBA7C2 /* EditPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlaylistViewController.swift; sourceTree = "<group>"; };
 		7AC8309B25B3298200BBA7C2 /* EditPlaylistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditPlaylistViewController.xib; sourceTree = "<group>"; };
 		7AC8309F25B3355D00BBA7C2 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		D3C2B22725B339EC002B3702 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		E924FE1A25AB6C060065F78D /* PimpMyPlaylist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PimpMyPlaylist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E924FE1D25AB6C060065F78D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E924FE2625AB6C070065F78D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				E924FE2825AB6C070065F78D /* LaunchScreen.storyboard */,
 				E924FE2B25AB6C070065F78D /* Info.plist */,
 				7AC8309F25B3355D00BBA7C2 /* ListViewController.swift */,
+				D3C2B22725B339EC002B3702 /* Movie.swift */,
 			);
 			path = PimpMyPlaylist;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				E924FE3825AB6E0D0065F78D /* HomeViewController.swift in Sources */,
 				7AC8308E25B3294F00BBA7C2 /* ResearchViewController.swift in Sources */,
 				7AC8309625B3297100BBA7C2 /* DeletePlaylistViewController.swift in Sources */,
+				D3C2B22825B339EC002B3702 /* Movie.swift in Sources */,
 				7AC830A025B3355D00BBA7C2 /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
