@@ -15,7 +15,7 @@ class Movie: CustomStringConvertible {
     private var vote_average: Double
     private var vote_count: Int
     private var release_date: Date
-    private var title: String
+    public var title: String
     private var popularity: Double
     private var adult: Bool
     private var backdrop_path: String
@@ -25,8 +25,8 @@ class Movie: CustomStringConvertible {
     private var original_language: String
     public var description: String {
         return
-            "Movie[ID: " + self.ID +
-            ", original_title: " + self.original_title +
+            "Movie[ID: \(self.ID) ]"
+           /* ", original_title: " + self.original_title +
             ", poster_path: " + self.poster_path +
             ", video: " + self.video +
             ", vote_average: " + self.vote_average +
@@ -39,8 +39,7 @@ class Movie: CustomStringConvertible {
             ", movie_ID: " + self.movie_ID +
             ", genre_id: " + self.genre_id +
             ", overview: " + self.overview +
-            ", original_language: " + self.original_language.description +
-        "]"
+            ", original_language: " + self.original_language + */
     }
     
      init(ID:Int, original_title:String,poster_path:String,video:Bool,
