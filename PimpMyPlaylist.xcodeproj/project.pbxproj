@@ -23,6 +23,10 @@
 		7AC8309D25B3298200BBA7C2 /* EditWatchlistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC8309B25B3298200BBA7C2 /* EditWatchlistViewController.xib */; };
 		7AC830A925B33DE100BBA7C2 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC830A725B33DE100BBA7C2 /* MenuViewController.swift */; };
 		7AC830AA25B33DE100BBA7C2 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC830A825B33DE100BBA7C2 /* MenuViewController.xib */; };
+		D324717525BB675800185095 /* WatchListMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D324717425BB675800185095 /* WatchListMovie.swift */; };
+		D326070025B64DF600600577 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32606FF25B64DF600600577 /* MovieViewModel.swift */; };
+		D342C3E525B60E4600993337 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D342C3E425B60E4600993337 /* Model.swift */; };
+		D3AF386725B4C546000084CF /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AF386625B4C546000084CF /* ApiService.swift */; };
 		D3C2B22825B339EC002B3702 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C2B22725B339EC002B3702 /* Movie.swift */; };
 		E924FE1E25AB6C060065F78D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924FE1D25AB6C060065F78D /* AppDelegate.swift */; };
 		E924FE2725AB6C070065F78D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E924FE2625AB6C070065F78D /* Assets.xcassets */; };
@@ -48,6 +52,10 @@
 		7AC8309B25B3298200BBA7C2 /* EditWatchlistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditWatchlistViewController.xib; sourceTree = "<group>"; };
 		7AC830A725B33DE100BBA7C2 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		7AC830A825B33DE100BBA7C2 /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		D324717425BB675800185095 /* WatchListMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListMovie.swift; sourceTree = "<group>"; };
+		D32606FF25B64DF600600577 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		D342C3E425B60E4600993337 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		D3AF386625B4C546000084CF /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		D3C2B22725B339EC002B3702 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		E924FE1A25AB6C060065F78D /* PimpMyPlaylist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PimpMyPlaylist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E924FE1D25AB6C060065F78D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +174,10 @@
 				E924FE2825AB6C070065F78D /* LaunchScreen.storyboard */,
 				E924FE2B25AB6C070065F78D /* Info.plist */,
 				D3C2B22725B339EC002B3702 /* Movie.swift */,
+				D3AF386625B4C546000084CF /* ApiService.swift */,
+				D324717425BB675800185095 /* WatchListMovie.swift */,
+				D342C3E425B60E4600993337 /* Model.swift */,
+				D32606FF25B64DF600600577 /* MovieViewModel.swift */,
 			);
 			path = PimpMyPlaylist;
 			sourceTree = "<group>";
@@ -275,11 +287,15 @@
 			files = (
 				7AC8309C25B3298200BBA7C2 /* EditWatchlistViewController.swift in Sources */,
 				7A9B334325B486CB006DBEB5 /* MovieViewController.swift in Sources */,
+				D3AF386725B4C546000084CF /* ApiService.swift in Sources */,
 				7AC830A925B33DE100BBA7C2 /* MenuViewController.swift in Sources */,
 				E924FE1E25AB6C060065F78D /* AppDelegate.swift in Sources */,
+				D326070025B64DF600600577 /* MovieViewModel.swift in Sources */,
+				D342C3E525B60E4600993337 /* Model.swift in Sources */,
 				7A73D7DB25B4820F00C664B5 /* ResultViewController.swift in Sources */,
 				7A73D7D525B4771F00C664B5 /* CustomTableViewCell.swift in Sources */,
 				E924FE3825AB6E0D0065F78D /* HomeViewController.swift in Sources */,
+				D324717525BB675800185095 /* WatchListMovie.swift in Sources */,
 				7AC8308E25B3294F00BBA7C2 /* ResearchViewController.swift in Sources */,
 				7A73D7E125B482E000C664B5 /* ResultTableViewCell.swift in Sources */,
 				7A9B334E25B4891F006DBEB5 /* MovieTableViewCell.swift in Sources */,

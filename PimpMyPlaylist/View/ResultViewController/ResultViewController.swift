@@ -10,6 +10,7 @@ import UIKit
 class ResultViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet var resultView: UITableView!
+    let viewModel = MovieViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.resultView.dataSource = self
@@ -17,6 +18,12 @@ class ResultViewController: UIViewController, UITableViewDelegate {
         self.registerTableViewCells()
         self.resultView.tableFooterView = UIView()
         self.resultView.backgroundColor = UIColor.clear
+        viewModel.fetchResultMoviesData {
+            [weak self] in
+            self?.resultView.dataSource = self
+            self?.resultView.reloadData()
+        }
+        
         
     }
     

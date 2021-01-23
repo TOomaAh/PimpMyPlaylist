@@ -25,9 +25,9 @@ class EditWatchlistViewController: UIViewController, UITableViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
-        var movie = Movie.init(ID: 1, original_title: "Pulp Fiction", poster_path: "path", video: true, vote_average: 10.1, vote_count: 10, release_date: Date(timeIntervalSinceNow: -693_792_000), title: "Pulp fiction", popularity: 10.0, adult: false, backdrop_path: "path", movie_ID: 10, genre_id: [10, 11], overview: "film cool", original_language: "fr")
+        var movie = Movie.init(ID: 1, original_title: "Pulp Fiction", poster_path: "path", video: true, vote_average: 10.1, vote_count: 10, release_date: Date(timeIntervalSinceNow: -693_792_000), title: "Pulp fiction", popularity: 10.0, adult: false, backdrop_path: "path", tmdb_id: 10, genre_id: [10, 11], overview: "film cool", original_language: "fr")
         movies.append(movie)
-        movie = Movie.init(ID: 2, original_title: "Pulp Fiction", poster_path: "path", video: true, vote_average: 10.1, vote_count: 10, release_date: Date(timeIntervalSinceNow: -693_792_000), title: "Pulp fiction", popularity: 10.0, adult: false, backdrop_path: "path", movie_ID: 10, genre_id: [10, 11], overview: "film cool", original_language: "fr")
+        movie = Movie.init(ID: 2, original_title: "Pulp Fiction", poster_path: "path", video: true, vote_average: 10.1, vote_count: 10, release_date: Date(timeIntervalSinceNow: -693_792_000), title: "Pulp fiction", popularity: 10.0, adult: false, backdrop_path: "path", tmdb_id: 10, genre_id: [10, 11], overview: "film cool", original_language: "fr")
         movies.append(movie)
         tableView.reloadData()
     }
