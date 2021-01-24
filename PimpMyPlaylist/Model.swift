@@ -8,29 +8,33 @@
 import Foundation
 
 struct MoviesData: Decodable {
-    let movies: [Movies]
+    let arrayTmdbMovies: [TmdbMovies]
     
     private enum CodingKeys: String, CodingKey {
-        case movies = "results"
+        case arrayTmdbMovies = "results"
     }
 }
 
-struct Movies: Decodable {
+struct TmdbMovies: Decodable {
     
-    let title: String
-    let year: String
+    let adult: Bool?
+    let backdrop_path: String?
+    let genre_ids: [Int]
     let id: Int
+    let original_language: String?
+    let original_title: String?
     let overview: String
-    let posterImage: String?
-    let rate: Double
-    let genreIds: [Int]
+    let popularity: Double?
+    let poster_path: String?
+    let release_date: String
+    let title: String
+    let video: Bool?
+    let vote_average: Double?
+    let vote_count: Int?
+  
     
     private enum CodingKeys: String, CodingKey {
-        case title, overview, id
-        case year = "release_date"
-        case rate = "vote_average"
-        case posterImage = "poster_path"
-        case genreIds = "genre_ids"
+        case adult, backdrop_path, genre_ids, id, original_language, original_title, overview, popularity, poster_path, release_date, title, video, vote_average, vote_count
     }
 }
 
@@ -47,10 +51,10 @@ struct WatchListMovies: Codable{
 }
 
 struct WatchListMovieData: Codable {
-    let watchListData: [WatchListMovies]
+    let arrayWatchListMovies: [WatchListMovies]
     
     private enum CodingKeys: String, CodingKey {
-        case watchListData = "Movies"
+        case arrayWatchListMovies = "Movies"
     }
 }
     

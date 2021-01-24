@@ -42,8 +42,7 @@ class MovieViewController: UIViewController, UITableViewDelegate {
     @IBAction func addWatchlist(_ sender: Any) {
         //Call api to add movie id to our watchlist
         self.addButton.setTitle("Added", for: .normal)
-        let testmovie = Movie.init(tmdb_id: 12, original_title: "MAc", overview: "ok", genre_id: [12,6], popularity: 12.7, date: "2015-01-29")
-        Api.postMovie(movie: testmovie) { result in
+       /* Api.postMovie(movie: testmovie) { result in
             switch result{
             case .success(let film):
                 print(film.self.title)
@@ -53,7 +52,7 @@ class MovieViewController: UIViewController, UITableViewDelegate {
                 print(error)
             break
             }
-        }
+        }*/
         
     }
     

@@ -22,7 +22,7 @@ class ResultTableViewCell: UITableViewCell {
     }
     
     
-    func setCellWithValueOf(_ movie:Movies) {
+    func setCellWithValueOf(_ movie:TmdbMovies) {
         updateUI(title: movie.title)
     }
     

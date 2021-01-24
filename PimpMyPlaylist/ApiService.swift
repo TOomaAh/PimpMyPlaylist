@@ -63,28 +63,7 @@ class ApiService {
         dataTask?.resume()
     }
     
-    func fetchMovie (filmTitle: String)->Void{
-        var movieArray = [Movie]()
-        self.getMoviesFromResearch(filmName: filmTitle) { [self] (result) in
-            switch result {
-            case .success(let movie):
-                for movieInfo in movie.movies {
-                    let resultMovie = Movie(tmdb_id: movieInfo.id, original_title: movieInfo.title, overview: movieInfo.overview, genre_id: movieInfo.genreIds, popularity: movieInfo.rate, date: movieInfo.year)
-                    print(resultMovie.getTitle())
-                    print(resultMovie.getOverview())
-                    print(resultMovie.getTmdb_id())
-                    movieArray.append(resultMovie)
-                }
-                //print(movieArray[0].getTitle())
-                break
-            case .failure(let e):
-                print(e)
-                break
-            }
-        }
-    }
-
-    func postMovie(movie:Movie,completion: @escaping (Result<WatchListMovie, Error>) -> Void){
+    func postMovie(movie:TmdbMovies,completion: @escaping (Result<WatchListMovies, Error>) -> Void){
         let stringUrl = "http://127.0.0.1:1234/movies"
         guard let ressourceUrl = URL(string: stringUrl) else {
             fatalError("Error while building url")
@@ -95,13 +74,13 @@ class ApiService {
             urlRequest.httpMethod = "POST"
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
             
-            let formatDate = movie.getDate()
+            let formatDate = movie.release_date
              let dateFormatter = DateFormatter()
              dateFormatter.dateFormat="yyyy-MM-dd"
              let dateString = dateFormatter.date(from: formatDate)
              let dateTimeStamp  = dateString!.timeIntervalSince1970
             
-            let watchlistMovie = WatchListMovie(title: movie.getTitle(), tmdb_id: movie.getTmdb_id(), watched: false, year: Int(dateTimeStamp))
+            let watchlistMovie = WatchListMovies(title: movie.title, tmdb_id: movie.id, watched: false, year: Int(dateTimeStamp))
             
             let jsonData =  try! JSONEncoder().encode(watchlistMovie)
             urlRequest.httpBody = jsonData
@@ -126,8 +105,8 @@ class ApiService {
                 }
                 
                 do{
-                    let postMovie = try JSONDecoder().decode(WatchListMovie.self, from: jsonData)
-                    print(postMovie.tmdb_id)
+                    let postMovie = try JSONDecoder().decode(WatchListMovies.self, from: jsonData)
+                    print(postMovie.id)
                     completion(.success(postMovie))
                 } catch {
                     completion(.failure(error))
@@ -266,41 +245,5 @@ class ApiService {
     }
 }
     
-    /*func getMovieInfos(movieTitle: String){
-        let buildUrl = self.ApiUrl + self.ApiKey + "&query=\(name)"
-        print(buildUrl)
-        guard let request = URL(string: buildUrl ) else {
-            fatalError("Error while building url")
-        }
-        
-        
-        let session = URLSession.shared
-        let task = session.dataTask(with:request) { (data, response, error) in
-            if let data = data {
-                if let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                    
-                        }
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    if let dict = json as? [String: Any]{
-                        if let id = dict["page"] as? String{
-                            DispatchQueue.main.async {
-                                let result = id
-                                print(result)
-                            }
-                        }
-                    }
-                } catch {
-                    print(error)
-                }
-
-            }
-        }
-        
-        task.resume()
-        
-    }*/
-
-    
-    
+          
 
