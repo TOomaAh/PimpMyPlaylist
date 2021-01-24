@@ -89,24 +89,19 @@ class ApiService {
                 
                 if let error = error {
                     completion(.failure(error))
-                    print("DataTask: error: \(error.localizedDescription)")
                     return
                 }
                 
-                guard let response = response as? HTTPURLResponse else {
-                    print("Empty Response")
+                guard (response as? HTTPURLResponse) != nil else {
                     return
                 }
-                print("Response status code: \(response.statusCode)")
                 
-                guard let data = data else{
-                    print("Empty Data")
+                guard data != nil else{
                     return
                 }
                 
                 do{
                     let postMovie = try JSONDecoder().decode(WatchListMovie.self, from: jsonData)
-                    print(postMovie.id)
                     completion(.success(postMovie))
                 } catch {
                     completion(.failure(error))
@@ -220,7 +215,7 @@ class ApiService {
                 }
                 print("Response status code: \(response.statusCode)")
                 
-                guard let data = data else{
+                guard data != nil else{
                     print("Empty Data")
                     return
                 }
@@ -237,7 +232,7 @@ class ApiService {
                 case .failure(let error):
                     print(error)
 
-                case .success(let watchListMovie):
+                case .success( _):
                     let test = "test"
                     print(test)
                 }
