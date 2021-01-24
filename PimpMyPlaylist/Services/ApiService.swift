@@ -63,7 +63,7 @@ class ApiService {
         dataTask?.resume()
     }
     
-    func postMovie(movie:TmdbMovies,completion: @escaping (Result<WatchListMovies, Error>) -> Void){
+    func postMovie(movie:TmdbMovie,completion: @escaping (Result<WatchListMovie, Error>) -> Void){
         let stringUrl = "http://127.0.0.1:1234/movies"
         guard let ressourceUrl = URL(string: stringUrl) else {
             fatalError("Error while building url")
@@ -80,7 +80,7 @@ class ApiService {
              let dateString = dateFormatter.date(from: formatDate)
              let dateTimeStamp  = dateString!.timeIntervalSince1970
             
-            let watchlistMovie = WatchListMovies(title: movie.title, tmdb_id: movie.id, watched: false, year: Int(dateTimeStamp))
+            let watchlistMovie = WatchListMovie(title: movie.title, tmdb_id: movie.id, watched: false, year: Int(dateTimeStamp))
             
             let jsonData =  try! JSONEncoder().encode(watchlistMovie)
             urlRequest.httpBody = jsonData
@@ -105,7 +105,7 @@ class ApiService {
                 }
                 
                 do{
-                    let postMovie = try JSONDecoder().decode(WatchListMovies.self, from: jsonData)
+                    let postMovie = try JSONDecoder().decode(WatchListMovie.self, from: jsonData)
                     print(postMovie.id)
                     completion(.success(postMovie))
                 } catch {
@@ -238,8 +238,8 @@ class ApiService {
                     print(error)
 
                 case .success(let watchListMovie):
-                 let test = watchListMovie.getTitle()
-                print(test)
+                    let test = "test"
+                    print(test)
                 }
             }
     }

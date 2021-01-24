@@ -1,21 +1,21 @@
 //
-//  Model.Swift
+//  TmdbMovie.swift
 //  PimpMyPlaylist
 //
-//  Created by Anthony Jauch on 18/01/2021.
+//  Created by Antoine THIEL on 24/01/2021.
 //
 
 import Foundation
 
 struct MoviesData: Decodable {
-    let arrayTmdbMovies: [TmdbMovies]
+    let arrayTmdbMovies: [TmdbMovie]
     
     private enum CodingKeys: String, CodingKey {
         case arrayTmdbMovies = "results"
     }
 }
 
-struct TmdbMovies: Decodable {
+struct TmdbMovie: Decodable {
     
     let adult: Bool?
     let backdrop_path: String?
@@ -37,25 +37,3 @@ struct TmdbMovies: Decodable {
         case adult, backdrop_path, genre_ids, id, original_language, original_title, overview, popularity, poster_path, release_date, title, video, vote_average, vote_count
     }
 }
-
-struct WatchListMovies: Codable{
-     var id: Int?
-     var title: String
-     var tmdb_id: Int
-     var watched: Bool
-     var year: Int
-    
-    private enum CodingKeys: String, CodingKey {
-        case id, title, tmdb_id,watched,year
-    }
-}
-
-struct WatchListMovieData: Codable {
-    let arrayWatchListMovies: [WatchListMovies]
-    
-    private enum CodingKeys: String, CodingKey {
-        case arrayWatchListMovies = "Movies"
-    }
-}
-    
- 

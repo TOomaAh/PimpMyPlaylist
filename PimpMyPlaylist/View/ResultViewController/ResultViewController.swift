@@ -10,7 +10,7 @@ import UIKit
 class ResultViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet var resultView: UITableView!
-    var movies: [TmdbMovies] = []
+    var movies: [TmdbMovie] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
