@@ -63,7 +63,7 @@ class ApiService {
         dataTask?.resume()
     }
     
-    func postMovie(movie:TmdbMovie,completion: @escaping (Result<WatchListMovie, Error>) -> Void){
+    /*func postMovie(movie:TmdbMovie,completion: @escaping (Result<WatchListMovie, Error>) -> Void){
         let stringUrl = "http://127.0.0.1:1234/movies"
         guard let ressourceUrl = URL(string: stringUrl) else {
             fatalError("Error while building url")
@@ -109,7 +109,7 @@ class ApiService {
         }
             dataTask.resume()
     }
-  }
+  }*/
     
     func getAllMovie(completion: @escaping(Result<WatchListMovieData,Error>) -> Void) {
         

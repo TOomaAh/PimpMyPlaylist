@@ -11,10 +11,16 @@ class MovieViewController: UIViewController, UITableViewDelegate {
     let Api = ApiService()
     
     @IBOutlet var tableView: UITableView!
-    private var movieInfo = [String]()
+    private var movie:TmdbMovie!
     @IBOutlet var overviewLabel: UILabel!
     @IBOutlet var titleMovieLabel: UILabel!
     @IBOutlet var addButton: UIButton!
+    
+    class func newInstance(nibName:String?, movie: TmdbMovie) -> MovieViewController{
+        let movieView = MovieViewController(nibName: "MovieViewController", bundle: nil)
+        movieView.movie = movie
+        return movieView;
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +29,10 @@ class MovieViewController: UIViewController, UITableViewDelegate {
         self.tableView.tableFooterView = UIView()
         self.tableView.backgroundColor = UIColor.clear
         self.registerTableViewCells()
+        self.titleMovieLabel.text = movie.title
+        self.overviewLabel.text = movie.overview
         
         //Get all infos from tmbd then fill the following infos
-        
-        self.movieInfo.append("16/04/1998")
-        self.movieInfo.append("Original title du film")
-        self.movieInfo.append("English")
-        self.movieInfo.append("10,5")
-        self.movieInfo.append("Guerre, Thriller")
-        self.overviewLabel.text = "Le film se passe la bas Le film se passe la bas Le film se passe la bas Le film se passe la bas"
     }
     
     private func registerTableViewCells(){
@@ -42,18 +43,6 @@ class MovieViewController: UIViewController, UITableViewDelegate {
     @IBAction func addWatchlist(_ sender: Any) {
         //Call api to add movie id to our watchlist
         self.addButton.setTitle("Added", for: .normal)
-       /* Api.postMovie(movie: testmovie) { result in
-            switch result{
-            case .success(let film):
-                print(film.self.title)
-            break
-                
-            case .failure(let error):
-                print(error)
-            break
-            }
-        }*/
-        
     }
     
 
@@ -61,7 +50,7 @@ class MovieViewController: UIViewController, UITableViewDelegate {
 
 extension MovieViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieInfo.count
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,19 +59,19 @@ extension MovieViewController : UITableViewDataSource{
             switch indexPath.row {
             case 0:
                 cell.labelKey.text = "Release Date"
-                cell.labelValue.text = movieInfo[0]
+                cell.labelValue.text = movie.release_date != nil ? movie.release_date : "n.c"
             case 1:
                 cell.labelKey.text = "Original Title"
-                cell.labelValue.text = movieInfo[1]
+                cell.labelValue.text = movie.original_title
             case 2:
                 cell.labelKey.text = "Original Language"
-                cell.labelValue.text = movieInfo[2]
+                cell.labelValue.text = movie.original_language
             case 3:
                 cell.labelKey.text = "Popularity"
-                cell.labelValue.text = movieInfo[3]
+                cell.labelValue.text = String(format: "%f", movie.popularity!)
             case 4:
                 cell.labelKey.text = "Genres"
-                cell.labelValue.text = movieInfo[4]
+                cell.labelValue.text = String(format: "%d", movie.genre_ids)
             default:
                 print("hi")
             }
