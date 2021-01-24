@@ -8,7 +8,8 @@
 import UIKit
 
 class MovieViewController: UIViewController, UITableViewDelegate {
-
+    let Api = ApiService()
+    
     @IBOutlet var tableView: UITableView!
     private var movieInfo = [String]()
     @IBOutlet var overviewLabel: UILabel!
@@ -41,6 +42,18 @@ class MovieViewController: UIViewController, UITableViewDelegate {
     @IBAction func addWatchlist(_ sender: Any) {
         //Call api to add movie id to our watchlist
         self.addButton.setTitle("Added", for: .normal)
+       /* Api.postMovie(movie: testmovie) { result in
+            switch result{
+            case .success(let film):
+                print(film.self.title)
+            break
+                
+            case .failure(let error):
+                print(error)
+            break
+            }
+        }*/
+        
     }
     
 

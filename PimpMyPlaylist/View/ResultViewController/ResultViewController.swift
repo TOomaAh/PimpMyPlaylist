@@ -10,13 +10,37 @@ import UIKit
 class ResultViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet var resultView: UITableView!
+    var movies: [TmdbMovie] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.resultView.dataSource = self
-        self.resultView.delegate = self
-        self.registerTableViewCells()
-        self.resultView.tableFooterView = UIView()
-        self.resultView.backgroundColor = UIColor.clear
+
+        
+        callTmdbApi(filmTitle: "Pulp Fiction")
+        
+        
+    }
+    
+    func callTmdbApi(filmTitle: String)->Void{
+        let Api = ApiService()
+        Api.getMoviesFromResearch(filmName: filmTitle) { [self] (results) in
+            switch results{
+            case .success(let moviesData):
+                let m = moviesData.arrayTmdbMovies
+                for movie in  m{
+                    movies.append(movie)
+                }
+                self.resultView.dataSource = self
+                self.resultView.delegate = self
+                self.registerTableViewCells()
+                self.resultView.tableFooterView = UIView()
+                self.resultView.backgroundColor = UIColor.clear
+                break
+                
+            case .failure(let error):
+                print(error)
+                break
+            }
+        }
         
     }
     
@@ -29,12 +53,13 @@ class ResultViewController: UIViewController, UITableViewDelegate {
 
 extension ResultViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ResultTableViewCell") as? ResultTableViewCell {
+            cell.label.text = movies[indexPath.row].title
             return cell
         }
         

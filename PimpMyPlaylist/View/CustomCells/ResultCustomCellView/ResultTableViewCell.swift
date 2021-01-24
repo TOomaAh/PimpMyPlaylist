@@ -21,4 +21,13 @@ class ResultTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    func setCellWithValueOf(_ movie:TmdbMovie) {
+        updateUI(title: movie.title)
+    }
+    
+    func updateUI(title: String?){
+        self.label.text = title
+    }
+    
 }
