@@ -23,8 +23,14 @@ class ResearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let resultViewController = ResultViewController(nibName: "ResultViewController", bundle: nil)
-        self.navigationController?.pushViewController(resultViewController, animated: true)
+        guard let movieTitle = self.textField.text else {
+            return false
+        }
+        if !movieTitle.isEmpty {
+            let resultViewController = ResultViewController.newInstance(nibName: "ResultViewController", movieTitle: movieTitle)
+            self.navigationController?.pushViewController(resultViewController, animated: true)
+        }
+        
         return true
     }
 

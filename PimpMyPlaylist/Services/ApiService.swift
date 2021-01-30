@@ -119,7 +119,7 @@ class ApiService {
         }
             dataTask.resume()
     }
-  }
+  }*/
     
     func getAllMovie(completion: @escaping(Result<[WatchListMovie],Error>) -> Void) {
         

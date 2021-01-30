@@ -11,10 +11,20 @@ class ResultViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet var resultView: UITableView!
     var movies: [TmdbMovie] = []
+    var movieTitle:String!
+    
+    class func newInstance(nibName:String?, movieTitle: String) -> ResultViewController{
+        let result = ResultViewController(nibName: "ResultViewController", bundle: nil)
+        result.movieTitle = movieTitle
+        return result;
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        callTmdbApi(filmTitle: "Pulp Fiction")
+        callTmdbApi(filmTitle: self.movieTitle)
     }
+    
+    
     
     func callTmdbApi(filmTitle: String)->Void{
         let Api = ApiService()
@@ -65,7 +75,7 @@ extension ResultViewController : UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //IndexRow = Case du tableau des reponses, envoyer id Film TMDB au MovieViewController
-        let movieView = MovieViewController(nibName: "MovieViewController", bundle: nil)
+        let movieView = MovieViewController.newInstance(nibName: "MovieViewController", movie: movies[indexPath.row])
         self.navigationController?.pushViewController(movieView, animated: true)
     }
     

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A1EC8F025C0ADC000FF9398 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1EC8EE25C0ADC000FF9398 /* CreateViewController.swift */; };
+		7A1EC8F125C0ADC000FF9398 /* CreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A1EC8EF25C0ADC000FF9398 /* CreateViewController.xib */; };
 		7A1FF3F925BDCA2F001EB59D /* TmdbMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FF3F825BDCA2F001EB59D /* TmdbMovie.swift */; };
 		7A1FF3FC25BDCA6F001EB59D /* WatchListMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FF3FB25BDCA6F001EB59D /* WatchListMovie.swift */; };
 		7A73D7D525B4771F00C664B5 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A73D7D325B4771F00C664B5 /* CustomTableViewCell.swift */; };
@@ -19,6 +21,8 @@
 		7A9B334425B486CB006DBEB5 /* MovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B334225B486CB006DBEB5 /* MovieViewController.xib */; };
 		7A9B334E25B4891F006DBEB5 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B334C25B4891F006DBEB5 /* MovieTableViewCell.swift */; };
 		7A9B334F25B4891F006DBEB5 /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B334D25B4891F006DBEB5 /* MovieTableViewCell.xib */; };
+		7AC1E50C25C0978400852BC2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1E50A25C0978400852BC2 /* LoginViewController.swift */; };
+		7AC1E50D25C0978400852BC2 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC1E50B25C0978400852BC2 /* LoginViewController.xib */; };
 		7AC8308E25B3294F00BBA7C2 /* ResearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8308C25B3294F00BBA7C2 /* ResearchViewController.swift */; };
 		7AC8308F25B3294F00BBA7C2 /* ResearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC8308D25B3294F00BBA7C2 /* ResearchViewController.xib */; };
 		7AC8309C25B3298200BBA7C2 /* EditWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8309A25B3298200BBA7C2 /* EditWatchlistViewController.swift */; };
@@ -37,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A1EC8EE25C0ADC000FF9398 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		7A1EC8EF25C0ADC000FF9398 /* CreateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateViewController.xib; sourceTree = "<group>"; };
 		7A1FF3F825BDCA2F001EB59D /* TmdbMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbMovie.swift; sourceTree = "<group>"; };
 		7A1FF3FB25BDCA6F001EB59D /* WatchListMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListMovie.swift; sourceTree = "<group>"; };
 		7A73D7D325B4771F00C664B5 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -49,6 +55,8 @@
 		7A9B334225B486CB006DBEB5 /* MovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieViewController.xib; sourceTree = "<group>"; };
 		7A9B334C25B4891F006DBEB5 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		7A9B334D25B4891F006DBEB5 /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
+		7AC1E50A25C0978400852BC2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7AC1E50B25C0978400852BC2 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		7AC8308C25B3294F00BBA7C2 /* ResearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchViewController.swift; sourceTree = "<group>"; };
 		7AC8308D25B3294F00BBA7C2 /* ResearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResearchViewController.xib; sourceTree = "<group>"; };
 		7AC8309A25B3298200BBA7C2 /* EditWatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWatchlistViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A1EC8ED25C0ADAB00FF9398 /* CreateView */ = {
+			isa = PBXGroup;
+			children = (
+				7A1EC8EE25C0ADC000FF9398 /* CreateViewController.swift */,
+				7A1EC8EF25C0ADC000FF9398 /* CreateViewController.xib */,
+			);
+			path = CreateView;
+			sourceTree = "<group>";
+		};
 		7A1FF3F325BDC9A7001EB59D /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +171,15 @@
 			path = MovieCellView;
 			sourceTree = "<group>";
 		};
+		7AC1E50F25C0979000852BC2 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				7AC1E50A25C0978400852BC2 /* LoginViewController.swift */,
+				7AC1E50B25C0978400852BC2 /* LoginViewController.xib */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
 		7AC8308B25B3293C00BBA7C2 /* ResearchView */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +240,8 @@
 		E924FE3425AB6DE60065F78D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7A1EC8ED25C0ADAB00FF9398 /* CreateView */,
+				7AC1E50F25C0979000852BC2 /* LoginView */,
 				7A1FF3F325BDC9A7001EB59D /* CustomCells */,
 				7A9B334025B486A5006DBEB5 /* MovieViewController */,
 				7A73D7D825B481E500C664B5 /* ResultViewController */,
@@ -294,11 +322,13 @@
 				E924FE2A25AB6C070065F78D /* LaunchScreen.storyboard in Resources */,
 				7A73D7D625B4771F00C664B5 /* CustomTableViewCell.xib in Resources */,
 				7AC830AA25B33DE100BBA7C2 /* MenuViewController.xib in Resources */,
+				7A1EC8F125C0ADC000FF9398 /* CreateViewController.xib in Resources */,
 				7A9B334425B486CB006DBEB5 /* MovieViewController.xib in Resources */,
 				7A9B334F25B4891F006DBEB5 /* MovieTableViewCell.xib in Resources */,
 				7AC8308F25B3294F00BBA7C2 /* ResearchViewController.xib in Resources */,
 				E924FE2725AB6C070065F78D /* Assets.xcassets in Resources */,
 				E924FE3925AB6E0D0065F78D /* HomeViewController.xib in Resources */,
+				7AC1E50D25C0978400852BC2 /* LoginViewController.xib in Resources */,
 				7AC8309D25B3298200BBA7C2 /* EditWatchlistViewController.xib in Resources */,
 				7A73D7DC25B4820F00C664B5 /* ResultViewController.xib in Resources */,
 				7A73D7E225B482E000C664B5 /* ResultTableViewCell.xib in Resources */,
@@ -312,11 +342,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AC1E50C25C0978400852BC2 /* LoginViewController.swift in Sources */,
 				7A1FF3FC25BDCA6F001EB59D /* WatchListMovie.swift in Sources */,
 				7AC8309C25B3298200BBA7C2 /* EditWatchlistViewController.swift in Sources */,
 				D30CA54225C5AECE003F1CF2 /* UserLogin.swift in Sources */,
 				7A9B334325B486CB006DBEB5 /* MovieViewController.swift in Sources */,
 				D3AF386725B4C546000084CF /* ApiService.swift in Sources */,
+				7A1EC8F025C0ADC000FF9398 /* CreateViewController.swift in Sources */,
 				7AC830A925B33DE100BBA7C2 /* MenuViewController.swift in Sources */,
 				E924FE1E25AB6C060065F78D /* AppDelegate.swift in Sources */,
 				D386852025C4A71100D74CE8 /* User.swift in Sources */,
