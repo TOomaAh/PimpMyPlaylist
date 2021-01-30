@@ -25,6 +25,9 @@
 		7AC8309D25B3298200BBA7C2 /* EditWatchlistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC8309B25B3298200BBA7C2 /* EditWatchlistViewController.xib */; };
 		7AC830A925B33DE100BBA7C2 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC830A725B33DE100BBA7C2 /* MenuViewController.swift */; };
 		7AC830AA25B33DE100BBA7C2 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC830A825B33DE100BBA7C2 /* MenuViewController.xib */; };
+		D30CA54225C5AECE003F1CF2 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30CA54125C5AECE003F1CF2 /* UserLogin.swift */; };
+		D386852025C4A71100D74CE8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386851F25C4A71100D74CE8 /* User.swift */; };
+		D386852325C4AB0E00D74CE8 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386852225C4AB0E00D74CE8 /* Role.swift */; };
 		D3AF386725B4C546000084CF /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AF386625B4C546000084CF /* ApiService.swift */; };
 		E924FE1E25AB6C060065F78D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924FE1D25AB6C060065F78D /* AppDelegate.swift */; };
 		E924FE2725AB6C070065F78D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E924FE2625AB6C070065F78D /* Assets.xcassets */; };
@@ -52,6 +55,9 @@
 		7AC8309B25B3298200BBA7C2 /* EditWatchlistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditWatchlistViewController.xib; sourceTree = "<group>"; };
 		7AC830A725B33DE100BBA7C2 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		7AC830A825B33DE100BBA7C2 /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		D30CA54125C5AECE003F1CF2 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
+		D386851F25C4A71100D74CE8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D386852225C4AB0E00D74CE8 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		D3AF386625B4C546000084CF /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		E924FE1A25AB6C060065F78D /* PimpMyPlaylist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PimpMyPlaylist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E924FE1D25AB6C060065F78D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +102,9 @@
 			children = (
 				7A1FF3F825BDCA2F001EB59D /* TmdbMovie.swift */,
 				7A1FF3FB25BDCA6F001EB59D /* WatchListMovie.swift */,
+				D386851F25C4A71100D74CE8 /* User.swift */,
+				D386852225C4AB0E00D74CE8 /* Role.swift */,
+				D30CA54125C5AECE003F1CF2 /* UserLogin.swift */,
 			);
 			path = Structures;
 			sourceTree = "<group>";
@@ -305,10 +314,12 @@
 			files = (
 				7A1FF3FC25BDCA6F001EB59D /* WatchListMovie.swift in Sources */,
 				7AC8309C25B3298200BBA7C2 /* EditWatchlistViewController.swift in Sources */,
+				D30CA54225C5AECE003F1CF2 /* UserLogin.swift in Sources */,
 				7A9B334325B486CB006DBEB5 /* MovieViewController.swift in Sources */,
 				D3AF386725B4C546000084CF /* ApiService.swift in Sources */,
 				7AC830A925B33DE100BBA7C2 /* MenuViewController.swift in Sources */,
 				E924FE1E25AB6C060065F78D /* AppDelegate.swift in Sources */,
+				D386852025C4A71100D74CE8 /* User.swift in Sources */,
 				7A73D7DB25B4820F00C664B5 /* ResultViewController.swift in Sources */,
 				7A73D7D525B4771F00C664B5 /* CustomTableViewCell.swift in Sources */,
 				E924FE3825AB6E0D0065F78D /* HomeViewController.swift in Sources */,
@@ -316,6 +327,7 @@
 				7A1FF3F925BDCA2F001EB59D /* TmdbMovie.swift in Sources */,
 				7A73D7E125B482E000C664B5 /* ResultTableViewCell.swift in Sources */,
 				7A9B334E25B4891F006DBEB5 /* MovieTableViewCell.swift in Sources */,
+				D386852325C4AB0E00D74CE8 /* Role.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

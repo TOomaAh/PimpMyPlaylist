@@ -13,11 +13,7 @@ class ResultViewController: UIViewController, UITableViewDelegate {
     var movies: [TmdbMovie] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
         callTmdbApi(filmTitle: "Pulp Fiction")
-        
-        
     }
     
     func callTmdbApi(filmTitle: String)->Void{
