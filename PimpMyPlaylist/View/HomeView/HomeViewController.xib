@@ -18,8 +18,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PimpMyPlaylist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMF-0G-eaS">
-                    <rect key="frame" x="60.5" y="421" width="293" height="54"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PimpMyWatchlist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMF-0G-eaS">
+                    <rect key="frame" x="40" y="421" width="334" height="54"/>
                     <color key="tintColor" systemColor="systemGray2Color"/>
                     <fontDescription key="fontDescription" type="system" pointSize="45"/>
                     <color key="textColor" systemColor="systemOrangeColor"/>
