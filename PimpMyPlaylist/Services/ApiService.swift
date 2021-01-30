@@ -232,7 +232,7 @@ class ApiService {
                 case .failure(let error):
                     print(error)
 
-                case .success( _):
+                case .success(_):
                     let test = "test"
                     print(test)
                 }
