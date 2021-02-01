@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
             if input == "isConnected" {
                 self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
             }
+            
         } catch {
             let login = LoginViewController(nibName: "LoginViewController", bundle: nil)
             self.navigationController?.pushViewController(login, animated: true)

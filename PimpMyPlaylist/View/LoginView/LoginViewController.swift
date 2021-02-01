@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var usernameInput: UITextField!
     @IBOutlet var passwordInput: UITextField!
     @IBOutlet var loginButton: UIButton!
+    let api = ApiService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,39 @@ class LoginViewController: UIViewController {
             return
         }
         //Api Login with usernameInput && passwordInput
+        
+        api.connectUser(identifier:usernameInput.text!, password: passwordInput.text!) { [self] (result) in
+            switch result{
+            case.success(let user):
+                let token = user.jwt
+                let userid = user.user.id
+                
+                let tokenFile = getDocumentsDirectory().appendingPathComponent("token.txt")
+                let idFile = getDocumentsDirectory().appendingPathComponent("id.txt")
+                let login = self.getDocumentsDirectory().appendingPathComponent("login.txt")
+
+                do {
+                    try token.write(to: tokenFile, atomically: true, encoding: String.Encoding.utf8)
+                    
+                    let stringId = String(userid)
+                    try stringId.write(to: idFile, atomically: true, encoding: String.Encoding.utf8)
+                    
+                    let input = "isConnected"
+                    try input.write(to: login, atomically: true, encoding: String.Encoding.utf8)
+                } catch {
+                    print("Failed to fetch token from API")
+                }
+                DispatchQueue.main.async {
+                    let menu = MenuViewController(nibName: "MenuViewController", bundle: nil)
+                    self.navigationController?.pushViewController(menu, animated: true)
+                }
+            break
+                
+            case.failure(let e):
+            print(e)
+            break
+            }
+        }
     }
     
     func getDocumentsDirectory() -> URL {

@@ -8,22 +8,20 @@
 import Foundation
 
 struct User: Codable {
-    var jwt: String
     var id: Int
     var username: String
     var email: String
     var provider: String?
-    var password: String
     var confirmed: Bool
     var blocked: Bool
     var role: Role?
-    var movie: String?
+    var movie: [WatchListMovie]?
     var created_by: String?
     var updated_by: String?
 }
 
 private enum CodingKeys: String, CodingKey {
-    case jwt, id, username, email, provider, password, confirmed, blocked, role, movie, created_by, updated_by
+    case id, username, email, provider, confirmed, blocked, role, movie, created_by, updated_by
 }
 
 struct UserData: Codable {

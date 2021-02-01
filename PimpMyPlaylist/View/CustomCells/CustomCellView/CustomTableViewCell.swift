@@ -7,12 +7,20 @@
 
 import UIKit
 
+protocol CustomCellDelegate: class {
+    func sharePressed(cell: CustomTableViewCell)
+}
+
 class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet public var label: UILabel!
     @IBOutlet var button: UIButton!
-
+    @IBOutlet weak var buttonDel: UIButton!
+    
     public var movieID:WatchListMovie!
+    
+    var delegate: CustomCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -26,7 +34,7 @@ class CustomTableViewCell: UITableViewCell {
     
     @IBAction func updateButtonLabel(_ sender: Any) {
         let Api = ApiService()
-/*        Api.updateMovie(movie: movieID) { (result) in
+        Api.updateMovie(movie: movieID) { (result) in
             switch result{
             case .success(let movie):
                 if movie.watched  {
@@ -39,7 +47,12 @@ class CustomTableViewCell: UITableViewCell {
                 print(e)
                 break
             }
-        }*/
+        }
+    }
+    
+    
+    @IBAction func deleteMovie(_ sender: Any) {
+        delegate?.sharePressed(cell: self)
     }
     
     func onResultApi(state:Bool){

@@ -7,7 +7,9 @@
 
 import UIKit
 
-class EditWatchlistViewController: UIViewController, UITableViewDelegate {
+class EditWatchlistViewController: UIViewController, UITableViewDelegate, CustomCellDelegate {
+    
+    
 
     @IBOutlet var tableView: UITableView!
     var watchlistMovies: [WatchListMovie] = []
@@ -32,7 +34,7 @@ class EditWatchlistViewController: UIViewController, UITableViewDelegate {
         Api.getAllMovie {  [self] (results) in
             switch results{
             case .success(let moviesData):
-                let array = moviesData.self
+                let array = moviesData.arrayWatchListMovies
                 for movie in array {
                     watchlistMovies.append(movie)
                 }
@@ -65,6 +67,7 @@ extension EditWatchlistViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as? CustomTableViewCell {
+            cell.delegate = self
             cell.label.text = watchlistMovies[indexPath.row].title
             cell.button.setTitle(watchlistMovies[indexPath.row].watched ? "vu" : "à voir", for: .normal)
             cell.movieID = watchlistMovies[indexPath.row]
@@ -76,11 +79,18 @@ extension EditWatchlistViewController : UITableViewDataSource{
         
     }
     
+    func sharePressed(cell: CustomTableViewCell) {
+        guard let index = tableView.indexPath(for: cell)?.row else {return}
+        let Api = ApiService()
+        Api.deleteMovie(id: watchlistMovies[index].id)
+        watchlistMovies.remove(at: index)
+        let indexPath = IndexPath(item: index, section: 0)
+        tableView.deleteRows(at:[indexPath], with: .fade)
+        tableView.reloadData()
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        print("toto")
-    }
 }

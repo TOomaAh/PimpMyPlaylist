@@ -8,7 +8,7 @@
 import Foundation
 
 struct Role: Codable {
-    var id: Int?
+    var id: Int
     var name: String
     var description: String
     var type: String

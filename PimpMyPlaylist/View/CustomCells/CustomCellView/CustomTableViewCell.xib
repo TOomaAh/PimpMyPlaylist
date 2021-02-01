@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1e-Hy-PU5">
-                        <rect key="frame" x="264" y="15" width="40" height="30"/>
+                        <rect key="frame" x="215" y="15" width="40" height="30"/>
                         <state key="normal" title="A voir">
                             <color key="titleColor" systemColor="systemRedColor"/>
                         </state>
@@ -27,20 +27,32 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQW-qa-Crs">
-                        <rect key="frame" x="16" y="15" width="234" height="30"/>
+                        <rect key="frame" x="16" y="15" width="180" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="234" id="kpw-w0-kFv"/>
+                            <constraint firstAttribute="width" constant="180" id="kpw-w0-kFv"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" systemColor="systemOrangeColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTl-6p-hiK">
+                        <rect key="frame" x="280" y="15" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="WQr-J0-VMP"/>
+                            <constraint firstAttribute="height" constant="30" id="al1-sz-ud0"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="orangeBin2"/>
+                        <connections>
+                            <action selector="deleteMovie:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1zk-1o-DKb"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="oTl-6p-hiK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="3aX-Dx-4Q6"/>
+                    <constraint firstItem="oTl-6p-hiK" firstAttribute="leading" secondItem="B1e-Hy-PU5" secondAttribute="trailing" constant="25" id="5Dt-KC-TuJ"/>
                     <constraint firstItem="uQW-qa-Crs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="AH8-Xw-uZ6"/>
-                    <constraint firstItem="B1e-Hy-PU5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Ghp-mN-yYg"/>
+                    <constraint firstAttribute="trailing" secondItem="oTl-6p-hiK" secondAttribute="trailing" constant="10" id="E3l-mn-7Np"/>
                     <constraint firstAttribute="bottom" secondItem="uQW-qa-Crs" secondAttribute="bottom" constant="15" id="MsE-2P-Ray"/>
-                    <constraint firstAttribute="trailing" secondItem="B1e-Hy-PU5" secondAttribute="trailing" constant="16" id="dUu-3D-hrl"/>
                     <constraint firstItem="uQW-qa-Crs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="qQt-mB-hsF"/>
                     <constraint firstAttribute="bottom" secondItem="B1e-Hy-PU5" secondAttribute="bottom" constant="15" id="rVJ-2O-PqX"/>
                 </constraints>
@@ -49,12 +61,14 @@
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="button" destination="B1e-Hy-PU5" id="2KT-DP-O3E"/>
+                <outlet property="buttonDel" destination="oTl-6p-hiK" id="cLo-WU-GTi"/>
                 <outlet property="label" destination="uQW-qa-Crs" id="Jrq-jH-qKH"/>
             </connections>
             <point key="canvasLocation" x="140.57971014492756" y="99.776785714285708"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="orangeBin2" width="119" height="170"/>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

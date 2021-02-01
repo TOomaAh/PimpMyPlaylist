@@ -12,6 +12,7 @@ class MovieViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet var tableView: UITableView!
     private var movie:TmdbMovie!
+    var watchlistMoviesId: [Int] = []
     @IBOutlet var overviewLabel: UILabel!
     @IBOutlet var titleMovieLabel: UILabel!
     @IBOutlet var addButton: UIButton!
@@ -35,14 +36,60 @@ class MovieViewController: UIViewController, UITableViewDelegate {
         //Get all infos from tmbd then fill the following infos
     }
     
+    
+    
     private func registerTableViewCells(){
         let textFieldCell = UINib(nibName: "MovieTableViewCell", bundle: nil)
         self.tableView.register(textFieldCell, forCellReuseIdentifier: "MovieTableViewCell")
     }
     
+    func getDocumentsDirectory() -> URL {
+        // find all possible documents directories for this user
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+
+        // just send back the first one, which ought to be the only one
+        return paths[0]
+    }
+    
+
     @IBAction func addWatchlist(_ sender: Any) {
-        //Call api to add movie id to our watchlist
+        //Call api to add movie id to our watchlist and update the user movies
         self.addButton.setTitle("Added", for: .normal)
+        let idFile = getDocumentsDirectory().appendingPathComponent("id.txt")
+        let id = try! String(contentsOf: idFile)
+        let userId = Int(id)
+        Api.postMovie(movie: movie, userId: userId!) { [self] (result) in
+            switch result{
+            case .success(let film):
+                Api.getAllMovie { (result) in
+                    switch result{
+                    case .success(let moviesData):
+                        let array = moviesData.arrayWatchListMovies
+                        for movie in array {
+                            watchlistMoviesId.append(movie.id!)
+                        }
+                        watchlistMoviesId.append(film.id)
+                        Api.updateUserMovie(movieId: watchlistMoviesId) { (result) in
+                            switch result{
+                            case .success(let movieId):
+                                break
+                            case .failure(let e):
+                                print(e)
+                                break
+                            }
+                        }
+                        break
+                    case .failure(let e):
+                        print(e)
+                        break
+                    }
+                }
+            break
+            case .failure(let error):
+                print(error)
+            break
+            }
+        }
     }
     
 

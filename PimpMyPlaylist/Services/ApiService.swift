@@ -20,6 +20,16 @@ class ApiService {
     
     }
     
+    
+    func getDocumentsDirectory() -> URL {
+        // find all possible documents directories for this user
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+
+        // just send back the first one, which ought to be the only one
+        return paths[0]
+    }
+    
+    
     func getMoviesFromResearch(filmName: String, completion: @escaping (Result<MoviesData, Error>) ->Void){
        let formatFileName = filmName.replacingOccurrences(of: " ", with: "%20")
         
@@ -63,32 +73,29 @@ class ApiService {
         dataTask?.resume()
     }
     
-    func postMovie(movie:TmdbMovie,user:User,completion: @escaping (Result<WatchListMovie, Error>) -> Void){
+    func postMovie(movie:TmdbMovie,userId:Int,completion: @escaping (Result<WatchListMovie, Error>) -> Void){
         let stringUrl = "https://strapi.brunet.ovh/movies"
         guard let ressourceUrl = URL(string: stringUrl) else {
             fatalError("Error while building url")
         }
+        let tokenFile = getDocumentsDirectory().appendingPathComponent("token.txt")
+        let apiToken = try! String(contentsOf: tokenFile)
         
-        do{
             var urlRequest = URLRequest(url: ressourceUrl)
             urlRequest.httpMethod = "POST"
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            print(user.jwt)
-            urlRequest.setValue("Bearer \(String(describing: user.jwt))", forHTTPHeaderField: "Authorization")
+            urlRequest.setValue("Bearer \(String(describing: apiToken))", forHTTPHeaderField: "Authorization")
+        
             
             
-            let formatDate = movie.release_date
              let dateFormatter = DateFormatter()
              dateFormatter.dateFormat="yyyy-MM-dd"
-             let dateString = dateFormatter.date(from: formatDate)
-             let dateTimeStamp  = dateString!.timeIntervalSince1970
+
              let todayDate = Date()
     
             let todayDateFormat = dateFormatter.string(from: todayDate)
             
-         /*   let watchlistMovie = WatchListMovie(title: movie.title, tmdb_id: movie.id, watched: false, year: Int(dateTimeStamp))
-        */
-            let watchlistMovie = WatchListMovie(title: movie.title, description: movie.overview, tmdb_id: movie.id, watched: false, users: user.id, date: todayDateFormat)
+        let watchlistMovie = WatchListMovie(title: movie.title, description: movie.overview, tmdb_id: movie.id, watched: false, users_permissions_user: userId, date: todayDateFormat)
             
             let jsonData =  try! JSONEncoder().encode(watchlistMovie)
             urlRequest.httpBody = jsonData
@@ -109,9 +116,9 @@ class ApiService {
                 }
                 
                 do{
-                    let postMovie = try JSONDecoder().decode(WatchListMovie.self, from: jsonData)
-                    
-                    print(String(data: data!,encoding:.utf8))
+                  
+
+                    let postMovie = try JSONDecoder().decode(WatchListMovie.self, from: data!)
                     completion(.success(postMovie))
                 } catch {
                     completion(.failure(error))
@@ -119,19 +126,26 @@ class ApiService {
         }
             dataTask.resume()
     }
-  }*/
+
     
-    func getAllMovie(completion: @escaping(Result<[WatchListMovie],Error>) -> Void) {
+    func getAllMovie(completion: @escaping(Result<WatchListMovieData,Error>) -> Void) {
+        let idFile = getDocumentsDirectory().appendingPathComponent("id.txt")
+        let id = try! String(contentsOf: idFile)
         
-        let stringUrl = "https://strapi.brunet.ovh/movies"
+        
+        let stringUrl = "https://strapi.brunet.ovh/users/\(String(describing: id))"
         guard let ressourceUrl = URL(string: stringUrl) else {
             fatalError("Error while building url")
         }
+        
+        let tokenFile = getDocumentsDirectory().appendingPathComponent("token.txt")
+        let apiToken = try! String(contentsOf: tokenFile)
+        
         var urlRequest = URLRequest(url: ressourceUrl)
         urlRequest.httpMethod = "GET"
-        urlRequest.setValue("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjEyMDE4OTQ2LCJleHAiOjE2MTQ2MTA5NDZ9.dnhC1kvhb7lGKo8apan8H9NEGGIjgZlh3Cs73dCssAA", forHTTPHeaderField: "Authorization")
+        urlRequest.setValue("Bearer \(String(describing: apiToken))", forHTTPHeaderField: "Authorization")
         
-        dataTask = URLSession.shared.dataTask(with: ressourceUrl) { (data, response, error) in
+        dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             
             if let error = error {
                 completion(.failure(error))
@@ -152,7 +166,7 @@ class ApiService {
             
             do{
                 let decoder = JSONDecoder()
-                let jsonData = try decoder.decode([WatchListMovie].self, from: data)
+                let jsonData = try decoder.decode(WatchListMovieData.self, from: data)
                 DispatchQueue.main.async {
                     completion(.success(jsonData))
                 }
@@ -166,7 +180,7 @@ class ApiService {
     
     func getMovieById(id: Int,completion: @escaping(Result<WatchListMovie,Error>) -> Void){
         
-        let stringUrl = "http://127.0.0.1:1234/movies/\(id)"
+        let stringUrl = "https://strapi.brunet.ovh/movies/\(id)"
         guard let ressourceUrl = URL(string: stringUrl) else {
             fatalError("Error while building url")
         }
@@ -206,14 +220,19 @@ class ApiService {
     }
     
     func deleteMovie(id:Int) -> Void{
-        let stringUrl = "http://127.0.0.1:1234/movies/\(id)"
+        let stringUrl = "https://strapi.brunet.ovh/movies/\(id)"
         guard let ressourceUrl = URL(string: stringUrl) else {
             fatalError("Error while building url")
         }
+   
         
-        do{
-            var urlRequest = URLRequest(url: ressourceUrl)
-            urlRequest.httpMethod = "DELETE"
+        let tokenFile = getDocumentsDirectory().appendingPathComponent("token.txt")
+        let apiToken = try! String(contentsOf: tokenFile)
+        
+        var urlRequest = URLRequest(url: ressourceUrl)
+        urlRequest.httpMethod = "DELETE"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("Bearer \(String(describing: apiToken))", forHTTPHeaderField: "Authorization")
             
             let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
                 
@@ -234,23 +253,19 @@ class ApiService {
                 }
         }
             dataTask.resume()
-            print("Deleted succesfully film with id = \(id)" )
-    }
   }
     
     
-    func connectUser(user:User,completion: @escaping (Result<UserLogin, Error>) -> Void){
+    func connectUser(identifier:String, password:String,completion: @escaping (Result<Connect, Error>) -> Void){
         let stringUrl = "https://strapi.brunet.ovh/auth/local/"
         guard let ressourceUrl = URL(string: stringUrl) else {
             fatalError("Error while building url")
         }
-        
         do{
             var urlRequest = URLRequest(url: ressourceUrl)
             urlRequest.httpMethod = "POST"
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-
-            let user = UserLogin(identifier: user.email, password: user.password)
+            let user = UserLogin(identifier: identifier, password: password)
             
             
             let jsonData =  try! JSONEncoder().encode(user)
@@ -272,8 +287,7 @@ class ApiService {
                 }
                 
                 do{
-                    let postUser = try JSONDecoder().decode(UserLogin.self, from: jsonData)
-                    print(postUser)
+                    let postUser = try JSONDecoder().decode(Connect.self, from: data!)
                     completion(.success(postUser))
                 } catch {
                     completion(.failure(error))
@@ -282,18 +296,68 @@ class ApiService {
             dataTask.resume()
     }
   }
-
     
-   /* func updateMovie(movie:WatchListMovie,completion: @escaping (Result<WatchListMovie, Error>) -> Void){
-        let stringUrl = "http://127.0.0.1:1234/movies/\(movie.id!)"
+    func updateUserMovie(movieId:[Int],completion: @escaping (Result<[Int], Error>) -> Void){
+        let idFile = getDocumentsDirectory().appendingPathComponent("id.txt")
+        let id = try! String(contentsOf: idFile)
+        
+        let stringUrl = "https://strapi.brunet.ovh/users/\(id)"
         guard let ressourceUrl = URL(string: stringUrl) else {
             fatalError("Error while building url")
         }
+        let tokenFile = getDocumentsDirectory().appendingPathComponent("token.txt")
+        let apiToken = try! String(contentsOf: tokenFile)
+        
+            var urlRequest = URLRequest(url: ressourceUrl)
+            urlRequest.httpMethod = "PUT"
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.setValue("Bearer \(String(describing: apiToken))", forHTTPHeaderField: "Authorization")
+        
+            let updateId = UpdateWatchListMovie(movies: movieId)
+            let jsonData =  try! JSONEncoder().encode(updateId)
+            urlRequest.httpBody = jsonData
+            
+            let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+                
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                guard (response as? HTTPURLResponse) != nil else {
+                    return
+                }
+                
+                guard data != nil else{
+                    return
+                }
+                
+                do{
+                    completion(.success(movieId))
+                } catch {
+                    completion(.failure(error))
+                }
+        }
+            dataTask.resume()
+    }
+    
+
+    
+    func updateMovie(movie:WatchListMovie,completion: @escaping (Result<WatchListMovie, Error>) -> Void){
+        let stringUrl = "https://strapi.brunet.ovh/movies/\(movie.id!)"
+        guard let ressourceUrl = URL(string: stringUrl) else {
+            fatalError("Error while building url")
+        }
+        
+        let tokenFile = getDocumentsDirectory().appendingPathComponent("token.txt")
+        let apiToken = try! String(contentsOf: tokenFile)
+        
         
         do{
             var urlRequest = URLRequest(url: ressourceUrl)
             urlRequest.httpMethod = "PUT"
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.setValue("Bearer \(String(describing: apiToken))", forHTTPHeaderField: "Authorization")
             
             var status = movie.watched
             if status == true {
@@ -302,7 +366,9 @@ class ApiService {
                 status = true
             }
             
-            let updatedMovie = WatchListMovie(id: movie.id, title: movie.title, tmdb_id: movie.tmdb_id, watched: status, year: movie.year)
+            var updatedMovie = WatchListMovie(id: movie.id!, title: movie.title, description: movie.description, tmdb_id: movie.tmdb_id, watched: status, date: movie.date)
+            updatedMovie.id = updatedMovie.id!
+            
             let jsonData =  try! JSONEncoder().encode(updatedMovie)
             urlRequest.httpBody = jsonData
             
@@ -330,7 +396,7 @@ class ApiService {
         }
             dataTask.resume()
     }
-  }*/
+  }
     
 }
     
