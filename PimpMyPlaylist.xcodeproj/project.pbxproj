@@ -70,7 +70,7 @@
 		D386851F25C4A71100D74CE8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D386852225C4AB0E00D74CE8 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		D3AF386625B4C546000084CF /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
-		D3FF88E025C7380A00A43808 /* UpdateWatchListMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateWatchListMovie.swift; path = ../../../../../../.Trash/UpdateWatchListMovie.swift; sourceTree = "<group>"; };
+		D3FF88E025C7380A00A43808 /* UpdateWatchListMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateWatchListMovie.swift; sourceTree = "<group>"; };
 		E924FE1A25AB6C060065F78D /* PimpMyPlaylist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PimpMyPlaylist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E924FE1D25AB6C060065F78D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E924FE2625AB6C070065F78D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
