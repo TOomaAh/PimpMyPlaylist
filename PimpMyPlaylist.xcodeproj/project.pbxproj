@@ -17,6 +17,8 @@
 		7A73D7DC25B4820F00C664B5 /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A73D7DA25B4820F00C664B5 /* ResultViewController.xib */; };
 		7A73D7E125B482E000C664B5 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A73D7DF25B482E000C664B5 /* ResultTableViewCell.swift */; };
 		7A73D7E225B482E000C664B5 /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A73D7E025B482E000C664B5 /* ResultTableViewCell.xib */; };
+		7A94D72025D2E667008549B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A94D72225D2E667008549B2 /* Localizable.strings */; };
+		7A94D72725D2F440008549B2 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A94D72625D2F440008549B2 /* ImageService.swift */; };
 		7A9B334325B486CB006DBEB5 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B334125B486CB006DBEB5 /* MovieViewController.swift */; };
 		7A9B334425B486CB006DBEB5 /* MovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B334225B486CB006DBEB5 /* MovieViewController.xib */; };
 		7A9B334E25B4891F006DBEB5 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B334C25B4891F006DBEB5 /* MovieTableViewCell.swift */; };
@@ -48,6 +50,9 @@
 		7A73D7DA25B4820F00C664B5 /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 		7A73D7DF25B482E000C664B5 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		7A73D7E025B482E000C664B5 /* ResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
+		7A94D72125D2E667008549B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7A94D72425D2E684008549B2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7A94D72625D2F440008549B2 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		7A9B334125B486CB006DBEB5 /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		7A9B334225B486CB006DBEB5 /* MovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieViewController.xib; sourceTree = "<group>"; };
 		7A9B334C25B4891F006DBEB5 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
@@ -104,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				D3AF386625B4C546000084CF /* ApiService.swift */,
+				7A94D72625D2F440008549B2 /* ImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -224,6 +230,7 @@
 				E924FE2625AB6C070065F78D /* Assets.xcassets */,
 				E924FE2825AB6C070065F78D /* LaunchScreen.storyboard */,
 				E924FE2B25AB6C070065F78D /* Info.plist */,
+				7A94D72225D2E667008549B2 /* Localizable.strings */,
 			);
 			path = PimpMyPlaylist;
 			sourceTree = "<group>";
@@ -294,6 +301,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = E924FE1125AB6C060065F78D;
 			productRefGroup = E924FE1B25AB6C060065F78D /* Products */;
@@ -313,6 +321,7 @@
 				E924FE2A25AB6C070065F78D /* LaunchScreen.storyboard in Resources */,
 				7A73D7D625B4771F00C664B5 /* CustomTableViewCell.xib in Resources */,
 				7AC830AA25B33DE100BBA7C2 /* MenuViewController.xib in Resources */,
+				7A94D72025D2E667008549B2 /* Localizable.strings in Resources */,
 				7A1EC8F125C0ADC000FF9398 /* CreateViewController.xib in Resources */,
 				7A9B334425B486CB006DBEB5 /* MovieViewController.xib in Resources */,
 				7A9B334F25B4891F006DBEB5 /* MovieTableViewCell.xib in Resources */,
@@ -334,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AC1E50C25C0978400852BC2 /* LoginViewController.swift in Sources */,
+				7A94D72725D2F440008549B2 /* ImageService.swift in Sources */,
 				7A1FF3FC25BDCA6F001EB59D /* WatchListMovie.swift in Sources */,
 				7AC8309C25B3298200BBA7C2 /* EditWatchlistViewController.swift in Sources */,
 				7A9B334325B486CB006DBEB5 /* MovieViewController.swift in Sources */,
@@ -354,6 +364,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		7A94D72225D2E667008549B2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A94D72125D2E667008549B2 /* en */,
+				7A94D72425D2E684008549B2 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		E924FE2825AB6C070065F78D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -369,6 +388,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -430,6 +450,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

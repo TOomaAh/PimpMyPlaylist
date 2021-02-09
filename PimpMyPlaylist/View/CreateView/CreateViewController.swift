@@ -13,9 +13,10 @@ class CreateViewController: UIViewController {
     @IBOutlet var emailField: UITextField!
     @IBOutlet var passwordField: UITextField!
     @IBOutlet var confirmField: UITextField!
+    @IBOutlet var createButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.createButton.setTitle(NSLocalizedString("controller.create.createButton", comment: ""), for: .normal)
         // Do any additional setup after loading the view.
     }
 

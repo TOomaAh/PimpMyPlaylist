@@ -10,10 +10,12 @@ import UIKit
 class EditWatchlistViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var watchlistLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Edit Watchlist"
+        self.watchlistLabel.text = NSLocalizedString("controller.edit.watchlistLabel", comment: "")
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.registerTableViewCells()

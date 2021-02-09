@@ -14,6 +14,9 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let langStr = Locale.current.languageCode else { return }
+        
+        print(langStr)
         let url = self.getDocumentsDirectory().appendingPathComponent("login.txt")
         do {
             let input = try String(contentsOf: url)

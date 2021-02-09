@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="tableView" destination="Umu-sA-Wf9" id="n48-E2-QHe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="watchlistLabel" destination="etA-Ej-TXn" id="hqh-vb-c3w"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

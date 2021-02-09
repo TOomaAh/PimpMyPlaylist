@@ -12,6 +12,7 @@ class MovieViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet var tableView: UITableView!
     private var movie:TmdbMovie!
+    @IBOutlet var overviewTitleLabel: UILabel!
     @IBOutlet var overviewLabel: UILabel!
     @IBOutlet var titleMovieLabel: UILabel!
     @IBOutlet var addButton: UIButton!
@@ -24,13 +25,20 @@ class MovieViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let img = UIImage(named: "saitama") else { return }
+        self.view.backgroundColor = UIColor(patternImage: img)
+        
+        
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.tableFooterView = UIView()
-        self.tableView.backgroundColor = UIColor.clear
+        //self.tableView.backgroundColor = UIColor.clear
         self.registerTableViewCells()
         self.titleMovieLabel.text = movie.title
         self.overviewLabel.text = movie.overview
+        self.overviewTitleLabel.text = NSLocalizedString("controller.movie.overviewTitle", comment: "")
+        self.addButton.setTitle(NSLocalizedString("controller.movie.addButton", comment: ""), for: .normal)
         
         //Get all infos from tmbd then fill the following infos
     }
@@ -58,19 +66,19 @@ extension MovieViewController : UITableViewDataSource{
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell") as? MovieTableViewCell {
             switch indexPath.row {
             case 0:
-                cell.labelKey.text = "Release Date"
+                cell.labelKey.text = NSLocalizedString("controller.movie.date", comment: "")
                 cell.labelValue.text = movie.release_date != nil ? movie.release_date : "n.c"
             case 1:
-                cell.labelKey.text = "Original Title"
+                cell.labelKey.text = NSLocalizedString("controller.movie.ogTitle", comment: "")
                 cell.labelValue.text = movie.original_title
             case 2:
-                cell.labelKey.text = "Original Language"
+                cell.labelKey.text = NSLocalizedString("controller.movie.ogLanguage", comment: "")
                 cell.labelValue.text = movie.original_language
             case 3:
-                cell.labelKey.text = "Popularity"
+                cell.labelKey.text = NSLocalizedString("controller.movie.popularity", comment: "")
                 cell.labelValue.text = String(format: "%f", movie.popularity!)
             case 4:
-                cell.labelKey.text = "Genres"
+                cell.labelKey.text = NSLocalizedString("controller.movie.genre", comment: "")
                 cell.labelValue.text = String(format: "%d", movie.genre_ids)
             default:
                 print("hi")
