@@ -19,11 +19,7 @@ class EditWatchlistViewController: UIViewController, UITableViewDelegate, Custom
         super.viewDidLoad()
         self.title = "Edit Watchlist"
         self.watchlistLabel.text = NSLocalizedString("controller.edit.watchlistLabel", comment: "")
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.registerTableViewCells()
-        self.tableView.tableFooterView = UIView()
-        self.tableView.backgroundColor = UIColor.clear
+        getAllWatchListMovie()
         // Do any additional setup after loading the view.
     }
     

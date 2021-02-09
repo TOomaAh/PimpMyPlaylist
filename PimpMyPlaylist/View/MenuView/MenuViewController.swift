@@ -44,20 +44,20 @@ class MenuViewController: UIViewController {
         // find all possible documents directories for this user
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         
-    private func fetchAndReloadImageView() {
-        if let pictureURL = self.url {
-            self.imageService.getImage(from: pictureURL) { (img) in
-                DispatchQueue.main.async {
-                    self.imageView.image = img
-                }
-            }
-        }
-    }
-    
     // MARK: - Navigation
 
         // just send back the first one, which ought to be the only one
         return paths[0]
     }
+    
+    private func fetchAndReloadImageView() {
+       if let pictureURL = self.url {
+           self.imageService.getImage(from: pictureURL) { (img) in
+               DispatchQueue.main.async {
+                   self.imageView.image = img
+               }
+           }
+       }
+   }
     
 }

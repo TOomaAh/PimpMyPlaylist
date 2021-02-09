@@ -79,7 +79,7 @@ class MovieViewController: UIViewController, UITableViewDelegate {
                         watchlistMoviesId.append(film.id)
                         Api.updateUserMovie(movieId: watchlistMoviesId) { (result) in
                             switch result{
-                            case .success(let movieId):
+                            case .success( _):
                                 break
                             case .failure(let e):
                                 print(e)

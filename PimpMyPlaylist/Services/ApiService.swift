@@ -331,12 +331,7 @@ class ApiService {
                 guard data != nil else{
                     return
                 }
-                
-                do{
                     completion(.success(movieId))
-                } catch {
-                    completion(.failure(error))
-                }
         }
             dataTask.resume()
     }
