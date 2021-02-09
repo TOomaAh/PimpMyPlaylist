@@ -1,0 +1,32 @@
+/* 
+  Localizable.strings
+  PimpMyPlaylist
+
+  Created by Antoine THIEL on 09/02/2021.
+  
+*/
+
+//Menu
+"controller.menu.search" = "Rechercher un film";
+"controller.menu.edit" = "Ma liste de film";
+"controller.menu.topRated" = "Films les mieux notés";
+
+
+//Movie
+"controller.movie.addButton" = "Ajouter a ma liste";
+"controller.movie.overviewTitle" = "Synopsis";
+"controller.movie.date" = "Date de sortie";
+"controller.movie.ogTitle" = "Titre d'origine";
+"controller.movie.ogLanguage" = "Langue d'origine";
+"controller.movie.popularity" = "Popularité";
+"controller.movie.genre" = "Genres";
+
+//Login
+"controller.login.logbutton" = "Se connecter";
+
+
+//Create
+"controller.create.createButton" = "Créer";
+
+//Edit
+"controller.edit.watchlistLabel" = "Ma Liste";

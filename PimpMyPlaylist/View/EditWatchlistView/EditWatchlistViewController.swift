@@ -13,13 +13,17 @@ class EditWatchlistViewController: UIViewController, UITableViewDelegate, Custom
 
     @IBOutlet var tableView: UITableView!
     var watchlistMovies: [WatchListMovie] = []
+    @IBOutlet var watchlistLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Edit Watchlist"
-      
-
-        getAllWatchListMovie()
+        self.watchlistLabel.text = NSLocalizedString("controller.edit.watchlistLabel", comment: "")
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.registerTableViewCells()
+        self.tableView.tableFooterView = UIView()
+        self.tableView.backgroundColor = UIColor.clear
         // Do any additional setup after loading the view.
     }
     

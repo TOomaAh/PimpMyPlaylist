@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateViewController" customModule="PimpMyPlaylist" customModuleProvider="target">
             <connections>
                 <outlet property="confirmField" destination="VYl-sW-sXb" id="HWJ-qJ-9JX"/>
+                <outlet property="createButton" destination="9FR-xr-qtM" id="fsE-BV-arc"/>
                 <outlet property="emailField" destination="Q0n-fk-Qrs" id="k0m-B9-iLO"/>
                 <outlet property="passwordField" destination="UFK-Yy-C8s" id="yW2-b4-90v"/>
                 <outlet property="usernameField" destination="KTN-Tj-ftA" id="AvW-aI-ZDi"/>
