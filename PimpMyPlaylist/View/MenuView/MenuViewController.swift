@@ -11,6 +11,9 @@ class MenuViewController: UIViewController {
     
     var imageService: ImageService = ImageService()
     @IBOutlet var searchButton: UIButton!
+    var movies: [TmdbMovie] = []
+    var timer: Timer!
+    var counter = 0
     @IBOutlet var editButton: UIButton!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var topRatedLabel: UILabel!
@@ -22,12 +25,36 @@ class MenuViewController: UIViewController {
         self.searchButton.setTitle(NSLocalizedString("controller.menu.search", comment: ""), for: .normal)
         self.editButton.setTitle(NSLocalizedString("controller.menu.edit", comment: ""), for: .normal)
         self.topRatedLabel.text = NSLocalizedString("controller.menu.topRated", comment: "")
-        self.url = URL.init(string: "https://image.tmdb.org/t/p/w500/fYtHxTxlhzD4QWfEbrC1rypysSD.jpg")
-        DispatchQueue.main.async {
-            self.fetchAndReloadImageView()
+        let api = ApiService()
+        api.getMoviesFromPopular { [self] (result) in
+            switch result{
+            case.success(let moviesData):
+                let m = moviesData.arrayTmdbMovies
+                for movie in m{
+                    self.movies.append(movie)
+                }
+                updatePicture()
+                self.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.updatePicture), userInfo: nil, repeats: true)
+                break
+                
+            case .failure(let error):
+                print(error)
+            }
         }
         
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func updatePicture(){
+        guard let url = self.movies[counter].poster_path else {
+            return
+        }
+        let finalUrl = "https://image.tmdb.org/t/p/w500"+url
+        self.fetchAndReloadImageView(poster: URL.init(string: finalUrl))
+        counter+=1
+        if counter == 20 {
+            counter = 0
+        }
     }
 
     @IBAction func searchMoviesNext(_ sender: Any) {
@@ -50,8 +77,8 @@ class MenuViewController: UIViewController {
         return paths[0]
     }
     
-    private func fetchAndReloadImageView() {
-       if let pictureURL = self.url {
+    private func fetchAndReloadImageView(poster:URL?) {
+        if let pictureURL = poster {
            self.imageService.getImage(from: pictureURL) { (img) in
                DispatchQueue.main.async {
                    self.imageView.image = img
