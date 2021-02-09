@@ -9,6 +9,7 @@ import UIKit
 
 class MenuViewController: UIViewController {
     
+    @IBOutlet var movieDetailsButton: UIButton!
     var imageService: ImageService = ImageService()
     @IBOutlet var searchButton: UIButton!
     var movies: [TmdbMovie] = []
@@ -86,5 +87,9 @@ class MenuViewController: UIViewController {
            }
        }
    }
+    @IBAction func handleDetails(_ sender: Any) {
+        let movieView = MovieViewController.newInstance(nibName: "MovieViewController", movie: self.movies[counter-1])
+        self.navigationController?.pushViewController(movieView, animated: true)
+    }
     
 }

@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="editButton" destination="gbh-nB-WvV" id="GEG-GZ-unY"/>
                 <outlet property="imageView" destination="ofa-tb-3yi" id="ghq-3q-tCN"/>
+                <outlet property="movieDetailsButton" destination="Pvz-wH-GQv" id="nw5-pd-w6P"/>
                 <outlet property="searchButton" destination="fzn-rV-kAF" id="Puy-cb-r2Y"/>
                 <outlet property="topRatedLabel" destination="722-de-nZ3" id="QSw-Vf-e1C"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -61,11 +62,19 @@
                     <color key="textColor" systemColor="systemOrangeColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pvz-wH-GQv">
+                    <rect key="frame" x="10" y="94.5" width="394" height="537.5"/>
+                    <connections>
+                        <action selector="handleDetails:" destination="-1" eventType="touchUpInside" id="FtD-j5-eGf"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="labelColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gbh-nB-WvV" secondAttribute="trailing" constant="10" id="5BY-pB-drV"/>
+                <constraint firstItem="Pvz-wH-GQv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="A0U-d5-2r9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Pvz-wH-GQv" secondAttribute="trailing" constant="10" id="BpY-0K-tRL"/>
                 <constraint firstItem="722-de-nZ3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="FKw-BB-muF"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ofa-tb-3yi" secondAttribute="trailing" constant="10" id="IFl-sK-byA"/>
                 <constraint firstItem="fzn-rV-kAF" firstAttribute="top" secondItem="ofa-tb-3yi" secondAttribute="bottom" constant="30" id="Lmr-c2-sHn"/>
@@ -73,6 +82,8 @@
                 <constraint firstItem="ofa-tb-3yi" firstAttribute="top" secondItem="722-de-nZ3" secondAttribute="bottom" constant="20" id="NnE-bx-cXP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="gbh-nB-WvV" secondAttribute="bottom" constant="150" id="TXT-YO-Y8h"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="722-de-nZ3" secondAttribute="trailing" constant="100" id="dDQ-An-2WO"/>
+                <constraint firstItem="Pvz-wH-GQv" firstAttribute="top" secondItem="722-de-nZ3" secondAttribute="bottom" constant="20" id="k2k-Ri-ura"/>
+                <constraint firstItem="fzn-rV-kAF" firstAttribute="top" secondItem="Pvz-wH-GQv" secondAttribute="bottom" constant="30" id="pB2-bK-R0S"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="fzn-rV-kAF" secondAttribute="bottom" constant="150" id="vET-Tp-yDp"/>
                 <constraint firstItem="722-de-nZ3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="yee-z1-TUE"/>
                 <constraint firstItem="ofa-tb-3yi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="yrx-s7-hcI"/>
