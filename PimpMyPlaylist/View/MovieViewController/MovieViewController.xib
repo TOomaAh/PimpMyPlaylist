@@ -13,6 +13,7 @@
                 <outlet property="addButton" destination="4pe-T6-5SN" id="h6y-uw-whK"/>
                 <outlet property="overviewLabel" destination="frO-eS-x28" id="kyx-gy-60J"/>
                 <outlet property="overviewTitleLabel" destination="v0v-nt-aWf" id="MUm-jf-1T2"/>
+                <outlet property="posterButton" destination="2Xv-s1-3f1" id="gcE-4U-THX"/>
                 <outlet property="tableView" destination="SJ1-Ty-g5J" id="EDh-Qm-wfE"/>
                 <outlet property="titleMovieLabel" destination="n0v-Yv-JzQ" id="KWA-x0-Rlm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -60,24 +61,33 @@
                     <color key="textColor" systemColor="systemOrangeColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Xv-s1-3f1">
+                    <rect key="frame" x="348" y="99" width="46" height="30"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="showPoster:" destination="-1" eventType="touchUpInside" id="dbL-eY-iX1"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4pe-T6-5SN" secondAttribute="trailing" constant="20" id="04O-bg-RAU"/>
                 <constraint firstItem="4pe-T6-5SN" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="6Re-qu-X3Z"/>
+                <constraint firstItem="2Xv-s1-3f1" firstAttribute="top" secondItem="4pe-T6-5SN" secondAttribute="bottom" constant="5" id="9BP-OP-UvP"/>
                 <constraint firstItem="frO-eS-x28" firstAttribute="top" secondItem="v0v-nt-aWf" secondAttribute="bottom" constant="10" id="KNS-Or-sS4"/>
                 <constraint firstItem="v0v-nt-aWf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="LPX-yN-E2w"/>
                 <constraint firstItem="n0v-Yv-JzQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="MFl-Ie-FR1"/>
                 <constraint firstItem="n0v-Yv-JzQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="RLP-7E-7vH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SJ1-Ty-g5J" secondAttribute="trailing" id="YlO-pK-fH1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2Xv-s1-3f1" secondAttribute="trailing" constant="20" id="bSn-Uz-Que"/>
                 <constraint firstItem="v0v-nt-aWf" firstAttribute="top" secondItem="n0v-Yv-JzQ" secondAttribute="bottom" constant="20" id="cct-SO-2oE"/>
                 <constraint firstItem="SJ1-Ty-g5J" firstAttribute="top" secondItem="frO-eS-x28" secondAttribute="bottom" constant="30" id="gyK-mK-zRJ"/>
                 <constraint firstItem="frO-eS-x28" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="nen-cZ-UnL"/>
                 <constraint firstItem="SJ1-Ty-g5J" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="qHl-WD-xkC"/>
                 <constraint firstItem="SJ1-Ty-g5J" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="w0Y-YX-uaR"/>
             </constraints>
-            <point key="canvasLocation" x="140.57971014492756" y="118.52678571428571"/>
+            <point key="canvasLocation" x="-288" y="58"/>
         </view>
     </objects>
     <resources>

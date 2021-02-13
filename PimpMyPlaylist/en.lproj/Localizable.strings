@@ -20,6 +20,8 @@
 "controller.movie.ogLanguage" = "Original Language";
 "controller.movie.popularity" = "Popularity";
 "controller.movie.genre" = "Genre";
+"controller.movie.poster" = "See poster";
+"controller.movie.description" = "See details";
 
 //login
 "controller.login.logbutton" = "Login";
@@ -29,3 +31,4 @@
 
 //Edit
 "controller.edit.watchlistLabel" = "My Watchlist";
+"controller.edit.title" = "Edit Watchlist";

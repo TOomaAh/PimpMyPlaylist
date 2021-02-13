@@ -24,6 +24,10 @@ class ResultViewController: UIViewController, UITableViewDelegate {
         callTmdbApi(filmTitle: self.movieTitle)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     
     
     func callTmdbApi(filmTitle: String)->Void{

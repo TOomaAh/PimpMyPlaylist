@@ -11,6 +11,8 @@
 		7A1EC8F125C0ADC000FF9398 /* CreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A1EC8EF25C0ADC000FF9398 /* CreateViewController.xib */; };
 		7A1FF3F925BDCA2F001EB59D /* TmdbMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FF3F825BDCA2F001EB59D /* TmdbMovie.swift */; };
 		7A1FF3FC25BDCA6F001EB59D /* WatchListMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FF3FB25BDCA6F001EB59D /* WatchListMovie.swift */; };
+		7A68D9B325D427C300A4F5A3 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A68D9B125D427C300A4F5A3 /* FriendsViewController.swift */; };
+		7A68D9B425D427C300A4F5A3 /* FriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A68D9B225D427C300A4F5A3 /* FriendsViewController.xib */; };
 		7A73D7D525B4771F00C664B5 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A73D7D325B4771F00C664B5 /* CustomTableViewCell.swift */; };
 		7A73D7D625B4771F00C664B5 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A73D7D425B4771F00C664B5 /* CustomTableViewCell.xib */; };
 		7A73D7DB25B4820F00C664B5 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A73D7D925B4820F00C664B5 /* ResultViewController.swift */; };
@@ -23,6 +25,8 @@
 		7A9B334425B486CB006DBEB5 /* MovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B334225B486CB006DBEB5 /* MovieViewController.xib */; };
 		7A9B334E25B4891F006DBEB5 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B334C25B4891F006DBEB5 /* MovieTableViewCell.swift */; };
 		7A9B334F25B4891F006DBEB5 /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B334D25B4891F006DBEB5 /* MovieTableViewCell.xib */; };
+		7ABC65B725D4612800E2101E /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC65B525D4612800E2101E /* FriendsTableViewCell.swift */; };
+		7ABC65B825D4612800E2101E /* FriendsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ABC65B625D4612800E2101E /* FriendsTableViewCell.xib */; };
 		7AC1E50C25C0978400852BC2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1E50A25C0978400852BC2 /* LoginViewController.swift */; };
 		7AC1E50D25C0978400852BC2 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC1E50B25C0978400852BC2 /* LoginViewController.xib */; };
 		7AC8308E25B3294F00BBA7C2 /* ResearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8308C25B3294F00BBA7C2 /* ResearchViewController.swift */; };
@@ -52,6 +56,8 @@
 		7A1EC8EF25C0ADC000FF9398 /* CreateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateViewController.xib; sourceTree = "<group>"; };
 		7A1FF3F825BDCA2F001EB59D /* TmdbMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbMovie.swift; sourceTree = "<group>"; };
 		7A1FF3FB25BDCA6F001EB59D /* WatchListMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListMovie.swift; sourceTree = "<group>"; };
+		7A68D9B125D427C300A4F5A3 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		7A68D9B225D427C300A4F5A3 /* FriendsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsViewController.xib; sourceTree = "<group>"; };
 		7A73D7D325B4771F00C664B5 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		7A73D7D425B4771F00C664B5 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		7A73D7D925B4820F00C664B5 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +71,8 @@
 		7A9B334225B486CB006DBEB5 /* MovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieViewController.xib; sourceTree = "<group>"; };
 		7A9B334C25B4891F006DBEB5 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		7A9B334D25B4891F006DBEB5 /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
+		7ABC65B525D4612800E2101E /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
+		7ABC65B625D4612800E2101E /* FriendsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsTableViewCell.xib; sourceTree = "<group>"; };
 		7AC1E50A25C0978400852BC2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7AC1E50B25C0978400852BC2 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		7AC8308C25B3294F00BBA7C2 /* ResearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +122,7 @@
 		7A1FF3F325BDC9A7001EB59D /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				7ABC65B425D4610200E2101E /* FriendsCellView */,
 				7A73D7D225B476DF00C664B5 /* CustomCellView */,
 				7A73D7DE25B482C400C664B5 /* ResultCustomCellView */,
 				7A9B334625B488EA006DBEB5 /* MovieCellView */,
@@ -145,6 +154,15 @@
 				D3F57FDD25D4762000FB351A /* RegisterUser.swift */,
 			);
 			path = Structures;
+			sourceTree = "<group>";
+		};
+		7A68D9B025D427AA00A4F5A3 /* FriendsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7A68D9B125D427C300A4F5A3 /* FriendsViewController.swift */,
+				7A68D9B225D427C300A4F5A3 /* FriendsViewController.xib */,
+			);
+			path = FriendsViewController;
 			sourceTree = "<group>";
 		};
 		7A73D7D225B476DF00C664B5 /* CustomCellView */ = {
@@ -190,6 +208,15 @@
 				7A9B334D25B4891F006DBEB5 /* MovieTableViewCell.xib */,
 			);
 			path = MovieCellView;
+			sourceTree = "<group>";
+		};
+		7ABC65B425D4610200E2101E /* FriendsCellView */ = {
+			isa = PBXGroup;
+			children = (
+				7ABC65B525D4612800E2101E /* FriendsTableViewCell.swift */,
+				7ABC65B625D4612800E2101E /* FriendsTableViewCell.xib */,
+			);
+			path = FriendsCellView;
 			sourceTree = "<group>";
 		};
 		7AC1E50F25C0979000852BC2 /* LoginView */ = {
@@ -262,6 +289,7 @@
 		E924FE3425AB6DE60065F78D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7A68D9B025D427AA00A4F5A3 /* FriendsViewController */,
 				7A1EC8ED25C0ADAB00FF9398 /* CreateView */,
 				7AC1E50F25C0979000852BC2 /* LoginView */,
 				7A1FF3F325BDC9A7001EB59D /* CustomCells */,
@@ -349,10 +377,12 @@
 				7A1EC8F125C0ADC000FF9398 /* CreateViewController.xib in Resources */,
 				7A9B334425B486CB006DBEB5 /* MovieViewController.xib in Resources */,
 				7A9B334F25B4891F006DBEB5 /* MovieTableViewCell.xib in Resources */,
+				7ABC65B825D4612800E2101E /* FriendsTableViewCell.xib in Resources */,
 				7AC8308F25B3294F00BBA7C2 /* ResearchViewController.xib in Resources */,
 				E924FE2725AB6C070065F78D /* Assets.xcassets in Resources */,
 				E924FE3925AB6E0D0065F78D /* HomeViewController.xib in Resources */,
 				7AC1E50D25C0978400852BC2 /* LoginViewController.xib in Resources */,
+				7A68D9B425D427C300A4F5A3 /* FriendsViewController.xib in Resources */,
 				7AC8309D25B3298200BBA7C2 /* EditWatchlistViewController.xib in Resources */,
 				7A73D7DC25B4820F00C664B5 /* ResultViewController.xib in Resources */,
 				7A73D7E225B482E000C664B5 /* ResultTableViewCell.xib in Resources */,
@@ -373,6 +403,7 @@
 				7AC8309C25B3298200BBA7C2 /* EditWatchlistViewController.swift in Sources */,
 				D30CA54225C5AECE003F1CF2 /* UserLogin.swift in Sources */,
 				7A9B334325B486CB006DBEB5 /* MovieViewController.swift in Sources */,
+				7A68D9B325D427C300A4F5A3 /* FriendsViewController.swift in Sources */,
 				D3AF386725B4C546000084CF /* ApiService.swift in Sources */,
 				7A1EC8F025C0ADC000FF9398 /* CreateViewController.swift in Sources */,
 				D3FF88E125C7380A00A43808 /* UpdateWatchListMovie.swift in Sources */,
@@ -386,6 +417,7 @@
 				D30CA54625C5D13B003F1CF2 /* Connect.swift in Sources */,
 				7AC8308E25B3294F00BBA7C2 /* ResearchViewController.swift in Sources */,
 				7A1FF3F925BDCA2F001EB59D /* TmdbMovie.swift in Sources */,
+				7ABC65B725D4612800E2101E /* FriendsTableViewCell.swift in Sources */,
 				7A73D7E125B482E000C664B5 /* ResultTableViewCell.swift in Sources */,
 				7A9B334E25B4891F006DBEB5 /* MovieTableViewCell.swift in Sources */,
 				D386852325C4AB0E00D74CE8 /* Role.swift in Sources */,

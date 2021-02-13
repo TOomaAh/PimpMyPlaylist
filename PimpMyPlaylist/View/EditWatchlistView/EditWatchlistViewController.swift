@@ -15,9 +15,12 @@ class EditWatchlistViewController: UIViewController, UITableViewDelegate, Custom
     var watchlistMovies: [WatchListMovie] = []
     @IBOutlet var watchlistLabel: UILabel!
     
+    
     override func viewDidLoad() {
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Friends", style: .plain, target: self, action: #selector(addFriends))
         super.viewDidLoad()
-        self.title = "Edit Watchlist"
+        self.title = NSLocalizedString("controller.edit.title", comment: "")
         self.watchlistLabel.text = NSLocalizedString("controller.edit.watchlistLabel", comment: "")
         getAllWatchListMovie()
         // Do any additional setup after loading the view.
@@ -28,12 +31,9 @@ class EditWatchlistViewController: UIViewController, UITableViewDelegate, Custom
        // tableView.reloadData()
     }
     
-    func getDocumentsDirectory() -> URL {
-        // find all possible documents directories for this user
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-
-        // just send back the first one, which ought to be the only one
-        return paths[0]
+    @objc func addFriends(){
+        let friends = FriendsViewController(nibName: "FriendsViewController", bundle: nil)
+        self.navigationController?.pushViewController(friends, animated: true)
     }
     
     func getAllWatchListMovie(){

@@ -9,10 +9,15 @@ import UIKit
 
 class MovieViewController: UIViewController, UITableViewDelegate {
     let Api = ApiService()
-    
-    @IBOutlet var tableView: UITableView!
     private var movie:TmdbMovie!
     var watchlistMoviesId: [Int] = []
+    let imageService: ImageService = ImageService()
+    var posterShown: Bool = false
+    var clearImageView: UIImageView = UIImageView()
+    var poster: UIImage!
+    
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var posterButton: UIButton!
     @IBOutlet var overviewTitleLabel: UILabel!
     @IBOutlet var overviewLabel: UILabel!
     @IBOutlet var titleMovieLabel: UILabel!
@@ -26,40 +31,87 @@ class MovieViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let img = UIImage(named: "saitama") else { return }
-        self.view.backgroundColor = UIColor(patternImage: img)
-        
-        
+        self.setPosterValue()
+        self.setLabels()
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.tableFooterView = UIView()
-        //self.tableView.backgroundColor = UIColor.clear
+        self.tableView.backgroundColor = UIColor.clear
         self.registerTableViewCells()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    //Set background & labels
+    private func setLabels(){
         self.titleMovieLabel.text = movie.title
         self.overviewLabel.text = movie.overview
         self.overviewTitleLabel.text = NSLocalizedString("controller.movie.overviewTitle", comment: "")
         self.addButton.setTitle(NSLocalizedString("controller.movie.addButton", comment: ""), for: .normal)
+        self.posterButton.setTitle(NSLocalizedString("controller.movie.poster", comment: ""), for: .normal)
+    }
+    
+    private func setBlurBackground(){
         
-        //Get all infos from tmbd then fill the following infos
+        let imageView   = UIImageView(frame: self.view.bounds);
+        imageView.image = self.poster
+        self.view.addSubview(imageView)
+        let blurEffect = UIBlurEffect(style: .systemUltraThinMaterialDark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.view.frame
+        self.view.insertSubview(blurEffectView, at: 0)
+        self.view.sendSubviewToBack(imageView)
+    }
+    
+    private func setPosterValue(){
+        guard let posterPath = movie.poster_path else {
+            return
+        }
+        let url = URL.init(string: "https://image.tmdb.org/t/p/w500"+posterPath)
+        if let pictureURL = url {
+           self.imageService.getImage(from: pictureURL) { (img) in
+               DispatchQueue.main.async {
+                self.poster = img
+                self.setBlurBackground()
+               }
+           }
+       }
+    }
+    
+    
+    @IBAction func showPoster(_ sender: Any) {
+        if !self.posterShown {
+            self.navigationController?.setNavigationBarHidden(true, animated: false)
+            self.clearImageView.frame = self.view.bounds
+            self.clearImageView.image = self.poster
+            self.clearImageView.tag = 10
+            self.view.insertSubview(self.clearImageView, at: 10)
+            self.view.insertSubview(self.posterButton, aboveSubview: self.clearImageView)
+            self.posterShown = true
+            self.posterButton.setTitle(NSLocalizedString("controller.movie.description", comment: ""), for: .normal)
+            
+        }else{
+            self.navigationController?.setNavigationBarHidden(false, animated: false)
+            if let viewWithTag = self.clearImageView.viewWithTag(10) {
+                viewWithTag.removeFromSuperview()
+                self.posterShown = false
+                self.posterButton.setTitle(NSLocalizedString("controller.movie.poster", comment: ""), for: .normal)
+            }
+        }
     }
     
     
     
+    //Register tables cells
     private func registerTableViewCells(){
         let textFieldCell = UINib(nibName: "MovieTableViewCell", bundle: nil)
         self.tableView.register(textFieldCell, forCellReuseIdentifier: "MovieTableViewCell")
     }
     
-    func getDocumentsDirectory() -> URL {
-        // find all possible documents directories for this user
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 
-        // just send back the first one, which ought to be the only one
-        return paths[0]
-    }
-    
-
+    //Add movie to watchlist
     @IBAction func addWatchlist(_ sender: Any) {
         //Call api to add movie id to our watchlist and update the user movies
         self.addButton.setTitle("Added", for: .normal)
@@ -98,6 +150,13 @@ class MovieViewController: UIViewController, UITableViewDelegate {
             break
             }
         }
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        // find all possible documents directories for this user
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        // just send back the first one, which ought to be the only one
+        return paths[0]
     }
     
 
