@@ -28,10 +28,19 @@ class EditWatchlistViewController: UIViewController, UITableViewDelegate, Custom
        // tableView.reloadData()
     }
     
+    func getDocumentsDirectory() -> URL {
+        // find all possible documents directories for this user
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+
+        // just send back the first one, which ought to be the only one
+        return paths[0]
+    }
     
     func getAllWatchListMovie(){
+        let idFile = getDocumentsDirectory().appendingPathComponent("id.txt")
+        let id = try! String(contentsOf: idFile)
         let Api = ApiService()
-        Api.getAllMovie {  [self] (results) in
+        Api.getAllMovie(id:id) {  [self] (results) in
             switch results{
             case .success(let moviesData):
                 let array = moviesData.arrayWatchListMovies
