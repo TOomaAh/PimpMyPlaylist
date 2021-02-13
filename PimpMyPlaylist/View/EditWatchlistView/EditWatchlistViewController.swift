@@ -15,9 +15,12 @@ class EditWatchlistViewController: UIViewController, UITableViewDelegate, Custom
     var watchlistMovies: [WatchListMovie] = []
     @IBOutlet var watchlistLabel: UILabel!
     
+    
     override func viewDidLoad() {
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Friends", style: .plain, target: self, action: #selector(addFriends))
         super.viewDidLoad()
-        self.title = "Edit Watchlist"
+        self.title = NSLocalizedString("controller.edit.title", comment: "")
         self.watchlistLabel.text = NSLocalizedString("controller.edit.watchlistLabel", comment: "")
         getAllWatchListMovie()
         // Do any additional setup after loading the view.
@@ -26,6 +29,11 @@ class EditWatchlistViewController: UIViewController, UITableViewDelegate, Custom
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
        // tableView.reloadData()
+    }
+    
+    @objc func addFriends(){
+        let friends = FriendsViewController(nibName: "FriendsViewController", bundle: nil)
+        self.navigationController?.pushViewController(friends, animated: true)
     }
     
     

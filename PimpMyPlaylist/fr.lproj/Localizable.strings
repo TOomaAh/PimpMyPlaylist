@@ -20,13 +20,15 @@
 "controller.movie.ogLanguage" = "Langue d'origine";
 "controller.movie.popularity" = "Popularité";
 "controller.movie.genre" = "Genres";
+"controller.movie.poster" = "Voir l'affiche";
+"controller.movie.description" = "Voir les détails";
 
 //Login
 "controller.login.logbutton" = "Se connecter";
-
 
 //Create
 "controller.create.createButton" = "Créer";
 
 //Edit
 "controller.edit.watchlistLabel" = "Ma Liste";
+"controller.edit.title" = "Editer ma Liste";
