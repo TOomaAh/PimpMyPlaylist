@@ -12,6 +12,5 @@ struct UpdateWatchListMovie: Codable{
     
     private enum CodingKeys: String, CodingKey {
         case movies
-        
     }
 }

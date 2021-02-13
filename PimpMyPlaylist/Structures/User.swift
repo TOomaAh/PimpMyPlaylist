@@ -18,10 +18,11 @@ struct User: Codable {
     var movie: [WatchListMovie]?
     var created_by: String?
     var updated_by: String?
+    var friends: [Friend]
 }
 
 private enum CodingKeys: String, CodingKey {
-    case id, username, email, provider, confirmed, blocked, role, movie, created_by, updated_by
+    case id, username, email, provider, confirmed, blocked, role, movie, created_by, updated_by,friends
 }
 
 struct UserData: Codable {

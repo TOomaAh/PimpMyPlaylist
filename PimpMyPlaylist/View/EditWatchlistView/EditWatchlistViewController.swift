@@ -36,10 +36,11 @@ class EditWatchlistViewController: UIViewController, UITableViewDelegate, Custom
         self.navigationController?.pushViewController(friends, animated: true)
     }
     
-    
     func getAllWatchListMovie(){
+        let idFile = getDocumentsDirectory().appendingPathComponent("id.txt")
+        let id = try! String(contentsOf: idFile)
         let Api = ApiService()
-        Api.getAllMovie {  [self] (results) in
+        Api.getAllMovie(id:id) {  [self] (results) in
             switch results{
             case .success(let moviesData):
                 let array = moviesData.arrayWatchListMovies

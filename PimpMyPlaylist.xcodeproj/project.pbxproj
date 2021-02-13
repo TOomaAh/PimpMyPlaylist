@@ -37,9 +37,12 @@
 		7AC830AA25B33DE100BBA7C2 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC830A825B33DE100BBA7C2 /* MenuViewController.xib */; };
 		D30CA54225C5AECE003F1CF2 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30CA54125C5AECE003F1CF2 /* UserLogin.swift */; };
 		D30CA54625C5D13B003F1CF2 /* Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30CA54525C5D13B003F1CF2 /* Connect.swift */; };
+		D38036D425D33802004184B5 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38036D325D33802004184B5 /* Friend.swift */; };
 		D386852025C4A71100D74CE8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386851F25C4A71100D74CE8 /* User.swift */; };
 		D386852325C4AB0E00D74CE8 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386852225C4AB0E00D74CE8 /* Role.swift */; };
 		D3AF386725B4C546000084CF /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AF386625B4C546000084CF /* ApiService.swift */; };
+		D3F57FDB25D465B200FB351A /* UpdateFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F57FDA25D465B200FB351A /* UpdateFriend.swift */; };
+		D3F57FDE25D4762000FB351A /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F57FDD25D4762000FB351A /* RegisterUser.swift */; };
 		D3FF88E125C7380A00A43808 /* UpdateWatchListMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FF88E025C7380A00A43808 /* UpdateWatchListMovie.swift */; };
 		E924FE1E25AB6C060065F78D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924FE1D25AB6C060065F78D /* AppDelegate.swift */; };
 		E924FE2725AB6C070065F78D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E924FE2625AB6C070065F78D /* Assets.xcassets */; };
@@ -80,9 +83,12 @@
 		7AC830A825B33DE100BBA7C2 /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		D30CA54125C5AECE003F1CF2 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
 		D30CA54525C5D13B003F1CF2 /* Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect.swift; sourceTree = "<group>"; };
+		D38036D325D33802004184B5 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		D386851F25C4A71100D74CE8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D386852225C4AB0E00D74CE8 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		D3AF386625B4C546000084CF /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		D3F57FDA25D465B200FB351A /* UpdateFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFriend.swift; sourceTree = "<group>"; };
+		D3F57FDD25D4762000FB351A /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
 		D3FF88E025C7380A00A43808 /* UpdateWatchListMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateWatchListMovie.swift; sourceTree = "<group>"; };
 		E924FE1A25AB6C060065F78D /* PimpMyPlaylist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PimpMyPlaylist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E924FE1D25AB6C060065F78D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +149,9 @@
 				D386852225C4AB0E00D74CE8 /* Role.swift */,
 				D30CA54125C5AECE003F1CF2 /* UserLogin.swift */,
 				D30CA54525C5D13B003F1CF2 /* Connect.swift */,
+				D38036D325D33802004184B5 /* Friend.swift */,
+				D3F57FDA25D465B200FB351A /* UpdateFriend.swift */,
+				D3F57FDD25D4762000FB351A /* RegisterUser.swift */,
 			);
 			path = Structures;
 			sourceTree = "<group>";
@@ -388,6 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AC1E50C25C0978400852BC2 /* LoginViewController.swift in Sources */,
+				D3F57FDE25D4762000FB351A /* RegisterUser.swift in Sources */,
 				7A94D72725D2F440008549B2 /* ImageService.swift in Sources */,
 				7A1FF3FC25BDCA6F001EB59D /* WatchListMovie.swift in Sources */,
 				7AC8309C25B3298200BBA7C2 /* EditWatchlistViewController.swift in Sources */,
@@ -397,6 +407,7 @@
 				D3AF386725B4C546000084CF /* ApiService.swift in Sources */,
 				7A1EC8F025C0ADC000FF9398 /* CreateViewController.swift in Sources */,
 				D3FF88E125C7380A00A43808 /* UpdateWatchListMovie.swift in Sources */,
+				D3F57FDB25D465B200FB351A /* UpdateFriend.swift in Sources */,
 				7AC830A925B33DE100BBA7C2 /* MenuViewController.swift in Sources */,
 				E924FE1E25AB6C060065F78D /* AppDelegate.swift in Sources */,
 				D386852025C4A71100D74CE8 /* User.swift in Sources */,
@@ -410,6 +421,7 @@
 				7A73D7E125B482E000C664B5 /* ResultTableViewCell.swift in Sources */,
 				7A9B334E25B4891F006DBEB5 /* MovieTableViewCell.swift in Sources */,
 				D386852325C4AB0E00D74CE8 /* Role.swift in Sources */,
+				D38036D425D33802004184B5 /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

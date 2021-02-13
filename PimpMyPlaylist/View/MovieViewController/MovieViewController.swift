@@ -121,7 +121,7 @@ class MovieViewController: UIViewController, UITableViewDelegate {
         Api.postMovie(movie: movie, userId: userId!) { [self] (result) in
             switch result{
             case .success(let film):
-                Api.getAllMovie { (result) in
+                Api.getAllMovie(id:id) { (result) in
                     switch result{
                     case .success(let moviesData):
                         let array = moviesData.arrayWatchListMovies
