@@ -11,6 +11,10 @@
 		7A1EC8F125C0ADC000FF9398 /* CreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A1EC8EF25C0ADC000FF9398 /* CreateViewController.xib */; };
 		7A1FF3F925BDCA2F001EB59D /* TmdbMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FF3F825BDCA2F001EB59D /* TmdbMovie.swift */; };
 		7A1FF3FC25BDCA6F001EB59D /* WatchListMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FF3FB25BDCA6F001EB59D /* WatchListMovie.swift */; };
+		7A24BE5C25DD58DD00A6A8BD /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A24BE5A25DD58DD00A6A8BD /* AddFriendViewController.swift */; };
+		7A24BE5D25DD58DD00A6A8BD /* AddFriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A24BE5B25DD58DD00A6A8BD /* AddFriendViewController.xib */; };
+		7A24BE6225DD5FB500A6A8BD /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A24BE6025DD5FB500A6A8BD /* AddFriendTableViewCell.swift */; };
+		7A24BE6325DD5FB500A6A8BD /* AddFriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A24BE6125DD5FB500A6A8BD /* AddFriendTableViewCell.xib */; };
 		7A68D9B325D427C300A4F5A3 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A68D9B125D427C300A4F5A3 /* FriendsViewController.swift */; };
 		7A68D9B425D427C300A4F5A3 /* FriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A68D9B225D427C300A4F5A3 /* FriendsViewController.xib */; };
 		7A73D7D525B4771F00C664B5 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A73D7D325B4771F00C664B5 /* CustomTableViewCell.swift */; };
@@ -56,6 +60,10 @@
 		7A1EC8EF25C0ADC000FF9398 /* CreateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateViewController.xib; sourceTree = "<group>"; };
 		7A1FF3F825BDCA2F001EB59D /* TmdbMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbMovie.swift; sourceTree = "<group>"; };
 		7A1FF3FB25BDCA6F001EB59D /* WatchListMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListMovie.swift; sourceTree = "<group>"; };
+		7A24BE5A25DD58DD00A6A8BD /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
+		7A24BE5B25DD58DD00A6A8BD /* AddFriendViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFriendViewController.xib; sourceTree = "<group>"; };
+		7A24BE6025DD5FB500A6A8BD /* AddFriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewCell.swift; sourceTree = "<group>"; };
+		7A24BE6125DD5FB500A6A8BD /* AddFriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFriendTableViewCell.xib; sourceTree = "<group>"; };
 		7A68D9B125D427C300A4F5A3 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		7A68D9B225D427C300A4F5A3 /* FriendsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsViewController.xib; sourceTree = "<group>"; };
 		7A73D7D325B4771F00C664B5 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -122,6 +130,7 @@
 		7A1FF3F325BDC9A7001EB59D /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				7A24BE5F25DD5FA000A6A8BD /* AddFriendCellView */,
 				7ABC65B425D4610200E2101E /* FriendsCellView */,
 				7A73D7D225B476DF00C664B5 /* CustomCellView */,
 				7A73D7DE25B482C400C664B5 /* ResultCustomCellView */,
@@ -154,6 +163,24 @@
 				D3F57FDD25D4762000FB351A /* RegisterUser.swift */,
 			);
 			path = Structures;
+			sourceTree = "<group>";
+		};
+		7A24BE5925DD58C000A6A8BD /* AddFriendViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7A24BE5A25DD58DD00A6A8BD /* AddFriendViewController.swift */,
+				7A24BE5B25DD58DD00A6A8BD /* AddFriendViewController.xib */,
+			);
+			path = AddFriendViewController;
+			sourceTree = "<group>";
+		};
+		7A24BE5F25DD5FA000A6A8BD /* AddFriendCellView */ = {
+			isa = PBXGroup;
+			children = (
+				7A24BE6025DD5FB500A6A8BD /* AddFriendTableViewCell.swift */,
+				7A24BE6125DD5FB500A6A8BD /* AddFriendTableViewCell.xib */,
+			);
+			path = AddFriendCellView;
 			sourceTree = "<group>";
 		};
 		7A68D9B025D427AA00A4F5A3 /* FriendsViewController */ = {
@@ -289,6 +316,7 @@
 		E924FE3425AB6DE60065F78D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7A24BE5925DD58C000A6A8BD /* AddFriendViewController */,
 				7A68D9B025D427AA00A4F5A3 /* FriendsViewController */,
 				7A1EC8ED25C0ADAB00FF9398 /* CreateView */,
 				7AC1E50F25C0979000852BC2 /* LoginView */,
@@ -371,9 +399,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E924FE2A25AB6C070065F78D /* LaunchScreen.storyboard in Resources */,
+				7A24BE6325DD5FB500A6A8BD /* AddFriendTableViewCell.xib in Resources */,
 				7A73D7D625B4771F00C664B5 /* CustomTableViewCell.xib in Resources */,
 				7AC830AA25B33DE100BBA7C2 /* MenuViewController.xib in Resources */,
 				7A94D72025D2E667008549B2 /* Localizable.strings in Resources */,
+				7A24BE5D25DD58DD00A6A8BD /* AddFriendViewController.xib in Resources */,
 				7A1EC8F125C0ADC000FF9398 /* CreateViewController.xib in Resources */,
 				7A9B334425B486CB006DBEB5 /* MovieViewController.xib in Resources */,
 				7A9B334F25B4891F006DBEB5 /* MovieTableViewCell.xib in Resources */,
@@ -407,7 +437,9 @@
 				D3AF386725B4C546000084CF /* ApiService.swift in Sources */,
 				7A1EC8F025C0ADC000FF9398 /* CreateViewController.swift in Sources */,
 				D3FF88E125C7380A00A43808 /* UpdateWatchListMovie.swift in Sources */,
+				7A24BE6225DD5FB500A6A8BD /* AddFriendTableViewCell.swift in Sources */,
 				D3F57FDB25D465B200FB351A /* UpdateFriend.swift in Sources */,
+				7A24BE5C25DD58DD00A6A8BD /* AddFriendViewController.swift in Sources */,
 				7AC830A925B33DE100BBA7C2 /* MenuViewController.swift in Sources */,
 				E924FE1E25AB6C060065F78D /* AppDelegate.swift in Sources */,
 				D386852025C4A71100D74CE8 /* User.swift in Sources */,

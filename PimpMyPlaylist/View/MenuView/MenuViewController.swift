@@ -44,41 +44,6 @@ class MenuViewController: UIViewController {
                 print(error)
             }
         }
-        //add friend + research
-      /*  api.getUserFromResearch(username: "anthotest") { (result) in
-            switch result{
-            case.success(let user):
-                print(user[0].id)
-                api.getAllFriends(id: "1") { [self] (result) in
-                    switch result{
-                    case.success(let friend):
-                        let arr = friend.arrayFriend
-                        for friend in arr {
-                            self.friends.append(friend)
-                            self.friendsId.append(friend.id)
-                        }
-                        self.friendsId.append(user[0].id)
-                        api.updateFriends(friendsId: friendsId) { (result) in
-                            switch result{
-                            case .success(let r):
-                                print(r)
-                                break
-                            case .failure(let e):
-                                print(e)
-                                break
-                            }
-                        }
-                        break
-                    case .failure(let error):
-                        print(error)
-                    }
-                }
-                break
-            case .failure(let error):
-                print(error)
-            }
-        }
-        */
         // Do any additional setup after loading the view.
     }
     
@@ -104,8 +69,15 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func editWatchlistNext(_ sender: Any) {
-        let editWatchList = EditWatchlistViewController(nibName: "EditWatchlistViewController", bundle: nil)
-        self.navigationController?.pushViewController(editWatchList, animated: true)
+        let idFile = self.getDocumentsDirectory().appendingPathComponent("id.txt")
+        do {
+            let uid = try String(contentsOf: idFile)
+            let editWatchList = EditWatchlistViewController.newInstance(nibName: "EditWatchlistViewController", id: uid, owned: true)
+            self.navigationController?.pushViewController(editWatchList, animated: true)
+        } catch {
+            
+        }
+        
     }
     
     func getDocumentsDirectory() -> URL {
