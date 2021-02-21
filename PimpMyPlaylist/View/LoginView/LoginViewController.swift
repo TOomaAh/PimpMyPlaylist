@@ -12,7 +12,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var usernameInput: UITextField!
     @IBOutlet var passwordInput: UITextField!
     @IBOutlet var loginButton: UIButton!
-    let api = ApiService()
+    let UserApi = UserService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
         }
         //Api Login with usernameInput && passwordInput
         
-        api.connectUser(identifier:usernameInput.text!, password: passwordInput.text!) { [self] (result) in
+        UserApi.connectUser(identifier:usernameInput.text!, password: passwordInput.text!) { [self] (result) in
             switch result{
             case.success(let user):
                 let token = user.jwt

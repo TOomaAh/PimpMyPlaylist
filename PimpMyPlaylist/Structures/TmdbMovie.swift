@@ -19,7 +19,6 @@ struct TmdbMovie: Decodable {
     
     let adult: Bool?
     let backdrop_path: String?
-    let genre_ids: [Int]
     let id: Int
     let original_language: String?
     let original_title: String?
@@ -34,6 +33,6 @@ struct TmdbMovie: Decodable {
   
     
     private enum CodingKeys: String, CodingKey {
-        case adult, backdrop_path, genre_ids, id, original_language, original_title, overview, popularity, poster_path, release_date, title, video, vote_average, vote_count
+        case adult, backdrop_path, id, original_language, original_title, overview, popularity, poster_path, release_date, title, video, vote_average, vote_count
     }
 }

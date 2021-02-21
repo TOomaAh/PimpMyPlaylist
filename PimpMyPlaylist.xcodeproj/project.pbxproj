@@ -40,6 +40,9 @@
 		D38036D425D33802004184B5 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38036D325D33802004184B5 /* Friend.swift */; };
 		D386852025C4A71100D74CE8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386851F25C4A71100D74CE8 /* User.swift */; };
 		D386852325C4AB0E00D74CE8 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = D386852225C4AB0E00D74CE8 /* Role.swift */; };
+		D397C2BC25DEF775005A8078 /* WatchListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D397C2BB25DEF775005A8078 /* WatchListService.swift */; };
+		D397C2BF25DEFC69005A8078 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D397C2BE25DEFC69005A8078 /* UserService.swift */; };
+		D397C2C225DEFD76005A8078 /* FriendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D397C2C125DEFD76005A8078 /* FriendService.swift */; };
 		D3AF386725B4C546000084CF /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AF386625B4C546000084CF /* ApiService.swift */; };
 		D3F57FDB25D465B200FB351A /* UpdateFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F57FDA25D465B200FB351A /* UpdateFriend.swift */; };
 		D3F57FDE25D4762000FB351A /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F57FDD25D4762000FB351A /* RegisterUser.swift */; };
@@ -86,6 +89,9 @@
 		D38036D325D33802004184B5 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		D386851F25C4A71100D74CE8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D386852225C4AB0E00D74CE8 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		D397C2BB25DEF775005A8078 /* WatchListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListService.swift; sourceTree = "<group>"; };
+		D397C2BE25DEFC69005A8078 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		D397C2C125DEFD76005A8078 /* FriendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendService.swift; sourceTree = "<group>"; };
 		D3AF386625B4C546000084CF /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		D3F57FDA25D465B200FB351A /* UpdateFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFriend.swift; sourceTree = "<group>"; };
 		D3F57FDD25D4762000FB351A /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
@@ -135,6 +141,9 @@
 			children = (
 				D3AF386625B4C546000084CF /* ApiService.swift */,
 				7A94D72625D2F440008549B2 /* ImageService.swift */,
+				D397C2BB25DEF775005A8078 /* WatchListService.swift */,
+				D397C2BE25DEFC69005A8078 /* UserService.swift */,
+				D397C2C125DEFD76005A8078 /* FriendService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -396,12 +405,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D397C2BF25DEFC69005A8078 /* UserService.swift in Sources */,
 				7AC1E50C25C0978400852BC2 /* LoginViewController.swift in Sources */,
 				D3F57FDE25D4762000FB351A /* RegisterUser.swift in Sources */,
 				7A94D72725D2F440008549B2 /* ImageService.swift in Sources */,
 				7A1FF3FC25BDCA6F001EB59D /* WatchListMovie.swift in Sources */,
 				7AC8309C25B3298200BBA7C2 /* EditWatchlistViewController.swift in Sources */,
 				D30CA54225C5AECE003F1CF2 /* UserLogin.swift in Sources */,
+				D397C2BC25DEF775005A8078 /* WatchListService.swift in Sources */,
 				7A9B334325B486CB006DBEB5 /* MovieViewController.swift in Sources */,
 				7A68D9B325D427C300A4F5A3 /* FriendsViewController.swift in Sources */,
 				D3AF386725B4C546000084CF /* ApiService.swift in Sources */,
@@ -412,6 +423,7 @@
 				E924FE1E25AB6C060065F78D /* AppDelegate.swift in Sources */,
 				D386852025C4A71100D74CE8 /* User.swift in Sources */,
 				7A73D7DB25B4820F00C664B5 /* ResultViewController.swift in Sources */,
+				D397C2C225DEFD76005A8078 /* FriendService.swift in Sources */,
 				7A73D7D525B4771F00C664B5 /* CustomTableViewCell.swift in Sources */,
 				E924FE3825AB6E0D0065F78D /* HomeViewController.swift in Sources */,
 				D30CA54625C5D13B003F1CF2 /* Connect.swift in Sources */,

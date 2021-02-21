@@ -17,8 +17,6 @@ class HomeViewController: UIViewController {
         guard let langStr = Locale.current.languageCode else { return }
         
         print(langStr)
-        //let login = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        //self.navigationController?.pushViewController(login, animated: true)
         let url = self.getDocumentsDirectory().appendingPathComponent("login.txt")
         do {
             let input = try String(contentsOf: url)
@@ -27,7 +25,8 @@ class HomeViewController: UIViewController {
             }
             
         } catch {
-            
+            let login = LoginViewController(nibName: "LoginViewController", bundle: nil)
+            self.navigationController?.pushViewController(login, animated: true)
         }
     }
 

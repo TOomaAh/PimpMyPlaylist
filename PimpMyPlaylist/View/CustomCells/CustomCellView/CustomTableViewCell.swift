@@ -33,8 +33,8 @@ class CustomTableViewCell: UITableViewCell {
     }
     
     @IBAction func updateButtonLabel(_ sender: Any) {
-        let Api = ApiService()
-        Api.updateMovie(movie: movieID) { (result) in
+        let WatchListApi = WatchListService()
+        WatchListApi.updateMovie(movie: movieID) { (result) in
             switch result{
             case .success(let movie):
                 if movie.watched  {

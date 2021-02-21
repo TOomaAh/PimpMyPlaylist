@@ -10,11 +10,10 @@ import UIKit
 class MenuViewController: UIViewController {
     
     @IBOutlet var movieDetailsButton: UIButton!
+    let api = ApiService()
     var imageService: ImageService = ImageService()
     @IBOutlet var searchButton: UIButton!
     var movies: [TmdbMovie] = []
-    var friends: [Friend] = []
-    var friendsId: [Int] = []
     var timer: Timer!
     var counter = 0
     @IBOutlet var editButton: UIButton!
@@ -44,41 +43,6 @@ class MenuViewController: UIViewController {
                 print(error)
             }
         }
-        //add friend + research
-      /*  api.getUserFromResearch(username: "anthotest") { (result) in
-            switch result{
-            case.success(let user):
-                print(user[0].id)
-                api.getAllFriends(id: "1") { [self] (result) in
-                    switch result{
-                    case.success(let friend):
-                        let arr = friend.arrayFriend
-                        for friend in arr {
-                            self.friends.append(friend)
-                            self.friendsId.append(friend.id)
-                        }
-                        self.friendsId.append(user[0].id)
-                        api.updateFriends(friendsId: friendsId) { (result) in
-                            switch result{
-                            case .success(let r):
-                                print(r)
-                                break
-                            case .failure(let e):
-                                print(e)
-                                break
-                            }
-                        }
-                        break
-                    case .failure(let error):
-                        print(error)
-                    }
-                }
-                break
-            case .failure(let error):
-                print(error)
-            }
-        }
-        */
         // Do any additional setup after loading the view.
     }
     
