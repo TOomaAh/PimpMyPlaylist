@@ -14,6 +14,16 @@ class EditWatchlistViewController: UIViewController, UITableViewDelegate, Custom
     @IBOutlet var tableView: UITableView!
     var watchlistMovies: [WatchListMovie] = []
     @IBOutlet var watchlistLabel: UILabel!
+    var owned:Bool!
+    var uid:String!
+    
+    
+    class func newInstance(nibName:String?, id: String, owned: Bool) -> EditWatchlistViewController{
+        let edit = EditWatchlistViewController(nibName: "EditWatchlistViewController", bundle: nil)
+        edit.owned = owned
+        edit.uid = id
+        return edit;
+    }
     
     
     override func viewDidLoad() {
@@ -37,10 +47,8 @@ class EditWatchlistViewController: UIViewController, UITableViewDelegate, Custom
     }
     
     func getAllWatchListMovie(){
-        let idFile = getDocumentsDirectory().appendingPathComponent("id.txt")
-        let id = try! String(contentsOf: idFile)
         let WatchListApi = WatchListService()
-        WatchListApi.getAllMovie(id:id) {  [self] (results) in
+        WatchListApi.getAllMovie(id:self.uid) {  [self] (results) in
             switch results{
             case .success(let moviesData):
                 let array = moviesData.arrayWatchListMovies
@@ -78,6 +86,11 @@ extension EditWatchlistViewController : UITableViewDataSource{
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as? CustomTableViewCell {
             cell.delegate = self
             cell.label.text = watchlistMovies[indexPath.row].title
+            if !self.owned {
+                cell.button.isEnabled = false
+                cell.buttonDel.isEnabled = false
+                cell.buttonDel.isHidden = true
+            }
             cell.button.setTitle(watchlistMovies[indexPath.row].watched ? "vu" : "à voir", for: .normal)
             cell.movieID = watchlistMovies[indexPath.row]
             cell.button.setTitleColor(watchlistMovies[indexPath.row].watched ? UIColor.green : UIColor.red, for: .normal)

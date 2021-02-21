@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol friendsAction: class {
+    func goToWatchlist(cell: FriendsTableViewCell)
+    func deleteFriend(cell: FriendsTableViewCell)
+}
+
 class FriendsTableViewCell: UITableViewCell {
 
     @IBOutlet public var usernameLabel: UILabel!
-    @IBOutlet var watchlistbutton: UIButton!
-    @IBOutlet var delButton: UIButton!
+    @IBOutlet weak var watchlistbutton: UIButton!
+    @IBOutlet weak var delButton: UIButton!
+    weak var delegate: friendsAction?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,4 +30,10 @@ class FriendsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func watchlistNext(_ sender: Any) {
+        delegate?.goToWatchlist(cell: self)
+    }
+    @IBAction func delFriend(_ sender: Any) {
+        delegate?.deleteFriend(cell: self)
+    }
 }

@@ -9,52 +9,22 @@ import UIKit
 
 class FriendsViewController: UIViewController, UITableViewDelegate {
 
-    @IBOutlet var searchFriends: UITextField!
+
+    @IBOutlet var searchFriendsButton: UIButton!
     @IBOutlet var tableView: UITableView!
-    let FriendApi = FriendService()
-    var friendsId:[Int] = Array()
     var friendsArray:[Friend] = Array()
-    
-    
+    var friendsId: [Int] = []
+    let FriendApi = FriendService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.getAllFriends()
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.tableFooterView = UIView()
+        self.tableView.backgroundColor = UIColor.clear
+        self.tableView.reloadData()
         self.registerTableViewCells()
-        //self.friendsArray.append("Antoine")
-        // Do any additional setup after loading the view.
-        //add friend + research
-        FriendApi.getUserFromResearch(username: "test") { (result) in
-            switch result{
-            case.success(let user):
-                print(user[0].id)
-                //self.addFriend(idFriend: user[0].id, idUser: 2)
-                break
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        let idFile = getDocumentsDirectory().appendingPathComponent("id.txt")
-        let idUser = try! String(contentsOf: idFile)
-        
-        FriendApi.getAllFriends(id: idUser) { (result) in
-            switch result{
-            case.success(let friend):
-                let arr = friend.arrayFriend
-                    for friend in arr {
-                        self.friendsArray.append(friend)
-                    }
-                self.tableView.dataSource = self
-                self.tableView.delegate = self
-                self.tableView.tableFooterView = UIView()
-                self.tableView.backgroundColor = UIColor.clear
-                self.tableView.reloadData()
-                break
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,106 +32,125 @@ class FriendsViewController: UIViewController, UITableViewDelegate {
     }
     
     private func registerTableViewCells(){
-        
             let textFieldCell = UINib(nibName: "FriendsTableViewCell", bundle: nil)
             self.tableView.register(textFieldCell, forCellReuseIdentifier: "FriendsTableViewCell")
     }
+    
+    private func getAllFriends(){
+        let idFile = getDocumentsDirectory().appendingPathComponent("id.txt")
+        do {
+            let uId = try String(contentsOf: idFile)
+            self.FriendApi.getAllFriends(id: uId) { [self] (result) in
+                switch result{
+                case.success(let friend):
+                    let arr = friend.arrayFriend
+                    for friend in arr {
+                        self.friendsArray.append(friend)
+                    }
+                    self.tableView.reloadData()
+                    if self.friendsArray.count == 0 {
+                        self.tableView.isHidden = true
+                    }
+                case.failure(let e):
+                    print(e)
+                }
+            }
+        } catch {
+            print("Failed to fetch id from File")
+        }
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        // find all possible documents directories for this user
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+
+        // just send back the first one, which ought to be the only one
+        return paths[0]
+    }
+    
+    @IBAction func addFriend(_ sender: Any) {
+        let addFriend = AddFriendViewController(nibName: "AddFriendViewController", bundle: nil)
+        self.navigationController?.pushViewController(addFriend, animated: true)
+    }
+    
 
 }
 
-extension FriendsViewController : UITableViewDataSource{
+extension FriendsViewController : UITableViewDataSource, friendsAction{
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendsArray.count == 0 ? 1 : friendsArray.count
+        return self.friendsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if friendsArray.count == 0 {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsTableViewCell") as? FriendsTableViewCell{
-                self.tableView.rowHeight = 101
-                cell.usernameLabel.text = "Search for new friends"
-                cell.watchlistbutton.isHidden = true
-                cell.watchlistbutton.isEnabled = false
-                cell.delButton.isEnabled = false
-                cell.delButton.isHidden = true
-                return cell
-            }
-        }else{
-            self.tableView.rowHeight = 50
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsTableViewCell") as? FriendsTableViewCell{
-                cell.usernameLabel.text = friendsArray[indexPath.row].username
-                return cell
-            }
+       
+        self.tableView.rowHeight = 50
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsTableViewCell") as? FriendsTableViewCell{
+            cell.delegate = self
+            cell.usernameLabel.text = friendsArray[indexPath.row].username
+            cell.watchlistbutton.isHidden = false
+            cell.watchlistbutton.isEnabled = true
+            cell.delButton.isEnabled = true
+            cell.delButton.isHidden = false
+            return cell
         }
         
         return UITableViewCell()
         
     }
     
+    func goToWatchlist(cell: FriendsTableViewCell) {
+        guard let index = tableView.indexPath(for: cell)?.row else {return}
+        let uid = friendsArray[index].id
+        let edit = EditWatchlistViewController.newInstance(nibName: "EditWatchlistViewController", id: String(uid), owned: false)
+        self.navigationController?.pushViewController(edit, animated: true)
+    }
+    
+    func deleteFriend(cell: FriendsTableViewCell) {
+        guard let index = tableView.indexPath(for: cell)?.row else {return}
+        let idFile = self.getDocumentsDirectory().appendingPathComponent("id.txt")
+        do {
+            let uid = try String(contentsOf: idFile)
+            
+            //Get all friends
+            self.FriendApi.getAllFriends(id: uid) { [self] (result) in
+                switch result{
+                case.success(let friend):
+                    let arr = friend.arrayFriend
+                    
+                    //Place all existing friends in an array
+                    for friend in arr {
+                        self.friendsId.append(friend.id)
+                    }
+                    //Remove friend id into array
+                    self.friendsId.remove(at: index)
+                    
+                    //Update user info with newly added Friend
+                    FriendApi.updateFriends(friendsId: friendsId) { (result) in
+                        switch result{
+                        case .success(_):
+                            self.friendsArray.remove(at: index)
+                            DispatchQueue.main.async {
+                                tableView.reloadData()
+                            }
+                            break
+                        case .failure(let e):
+                            print(e)
+                            break
+                        }
+                    }
+                    break
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        } catch  {
+            print("Failed to retrieve Id")
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
-    }
-    
-    func deleteFriend(idFriend:Int,idUser:Int){
-        let stringId = String(idUser)
-        self.FriendApi.getAllFriends(id: stringId) { [self] (result) in
-            switch result{
-            case.success(let friend):
-                let arr = friend.arrayFriend
-                for friend in arr {
-                    self.friendsArray.append(friend)
-                    self.friendsId.append(friend.id)
-                }
-                    
-                for i in 0..<friendsId.count {
-                    if idFriend == friendsId[i] {
-                        self.friendsId.remove(at: i)
-                    }
-                }
-                //self.friendsId.append(user[0].id)
-                FriendApi.updateFriends(friendsId: friendsId) { (result) in
-                    switch result{
-                    case .success(let r):
-                        print(r)
-                        break
-                    case .failure(let e):
-                        print(e)
-                        break
-                    }
-                }
-                break
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    func addFriend(idFriend:Int,idUser:Int){
-        let stringId = String(idUser)
-        self.FriendApi.getAllFriends(id: stringId) { [self] (result) in
-            switch result{
-            case.success(let friend):
-                let arr = friend.arrayFriend
-                for friend in arr {
-                    self.friendsArray.append(friend)
-                    self.friendsId.append(friend.id)
-                }
-                self.friendsId.append(idFriend)
-                FriendApi.updateFriends(friendsId: friendsId) { (result) in
-                    switch result{
-                    case .success(let r):
-                        print(r)
-                        break
-                    case .failure(let e):
-                        print(e)
-                        break
-                    }
-                }
-                break
-            case .failure(let error):
-                print(error)
-            }
-        }
     }
     
 }

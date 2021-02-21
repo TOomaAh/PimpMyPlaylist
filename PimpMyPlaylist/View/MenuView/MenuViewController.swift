@@ -68,8 +68,15 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func editWatchlistNext(_ sender: Any) {
-        let editWatchList = EditWatchlistViewController(nibName: "EditWatchlistViewController", bundle: nil)
-        self.navigationController?.pushViewController(editWatchList, animated: true)
+        let idFile = self.getDocumentsDirectory().appendingPathComponent("id.txt")
+        do {
+            let uid = try String(contentsOf: idFile)
+            let editWatchList = EditWatchlistViewController.newInstance(nibName: "EditWatchlistViewController", id: uid, owned: true)
+            self.navigationController?.pushViewController(editWatchList, animated: true)
+        } catch {
+            
+        }
+        
     }
     
     func getDocumentsDirectory() -> URL {
