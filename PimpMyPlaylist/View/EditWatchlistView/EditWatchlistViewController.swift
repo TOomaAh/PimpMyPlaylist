@@ -47,8 +47,8 @@ class EditWatchlistViewController: UIViewController, UITableViewDelegate, Custom
     }
     
     func getAllWatchListMovie(){
-        let Api = ApiService()
-        Api.getAllMovie(id:self.uid) {  [self] (results) in
+        let WatchListApi = WatchListService()
+        WatchListApi.getAllMovie(id:self.uid) {  [self] (results) in
             switch results{
             case .success(let moviesData):
                 let array = moviesData.arrayWatchListMovies
@@ -101,10 +101,27 @@ extension EditWatchlistViewController : UITableViewDataSource{
         
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //IndexRow = Case du tableau des reponses, envoyer id Film TMDB au MovieViewController
+        let Api = ApiService()
+        Api.getMoviesFromTmdbId(tmdb_id: watchlistMovies[indexPath.row].tmdb_id) { (result) in
+            switch result{
+            case.success(let tmdbMovie):
+                let movieView = MovieViewController.newInstance(nibName: "MovieViewController", movie: tmdbMovie)
+                self.navigationController?.pushViewController(movieView, animated: true)
+                break
+            case.failure(let e):
+                print(e)
+                break
+            }
+        }
+    }
+    
     func sharePressed(cell: CustomTableViewCell) {
         guard let index = tableView.indexPath(for: cell)?.row else {return}
-        let Api = ApiService()
-        Api.deleteMovie(id: watchlistMovies[index].id)
+        let WatchListApi = WatchListService()
+        WatchListApi.deleteMovie(id: watchlistMovies[index].id)
         watchlistMovies.remove(at: index)
         let indexPath = IndexPath(item: index, section: 0)
         tableView.deleteRows(at:[indexPath], with: .fade)

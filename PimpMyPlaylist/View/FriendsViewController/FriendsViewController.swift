@@ -14,7 +14,7 @@ class FriendsViewController: UIViewController, UITableViewDelegate {
     @IBOutlet var tableView: UITableView!
     var friendsArray:[Friend] = Array()
     var friendsId: [Int] = []
-    var api:ApiService = ApiService()
+    let FriendApi = FriendService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,6 @@ class FriendsViewController: UIViewController, UITableViewDelegate {
         self.tableView.backgroundColor = UIColor.clear
         self.tableView.reloadData()
         self.registerTableViewCells()
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,7 +40,7 @@ class FriendsViewController: UIViewController, UITableViewDelegate {
         let idFile = getDocumentsDirectory().appendingPathComponent("id.txt")
         do {
             let uId = try String(contentsOf: idFile)
-            self.api.getAllFriends(id: uId) { [self] (result) in
+            self.FriendApi.getAllFriends(id: uId) { [self] (result) in
                 switch result{
                 case.success(let friend):
                     let arr = friend.arrayFriend
@@ -84,7 +83,7 @@ extension FriendsViewController : UITableViewDataSource, friendsAction{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+       
         self.tableView.rowHeight = 50
         if let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsTableViewCell") as? FriendsTableViewCell{
             cell.delegate = self
@@ -114,7 +113,7 @@ extension FriendsViewController : UITableViewDataSource, friendsAction{
             let uid = try String(contentsOf: idFile)
             
             //Get all friends
-            self.api.getAllFriends(id: uid) { [self] (result) in
+            self.FriendApi.getAllFriends(id: uid) { [self] (result) in
                 switch result{
                 case.success(let friend):
                     let arr = friend.arrayFriend
@@ -123,13 +122,11 @@ extension FriendsViewController : UITableViewDataSource, friendsAction{
                     for friend in arr {
                         self.friendsId.append(friend.id)
                     }
-                    print(self.friendsId)
                     //Remove friend id into array
                     self.friendsId.remove(at: index)
-                    print(self.friendsId)
                     
                     //Update user info with newly added Friend
-                    api.updateFriends(friendsId: friendsId) { (result) in
+                    FriendApi.updateFriends(friendsId: friendsId) { (result) in
                         switch result{
                         case .success(_):
                             self.friendsArray.remove(at: index)
@@ -157,10 +154,3 @@ extension FriendsViewController : UITableViewDataSource, friendsAction{
     }
     
 }
-
-
-
-
-/*
- 
- */

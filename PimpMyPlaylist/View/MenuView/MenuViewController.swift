@@ -10,11 +10,10 @@ import UIKit
 class MenuViewController: UIViewController {
     
     @IBOutlet var movieDetailsButton: UIButton!
+    let api = ApiService()
     var imageService: ImageService = ImageService()
     @IBOutlet var searchButton: UIButton!
     var movies: [TmdbMovie] = []
-    var friends: [Friend] = []
-    var friendsId: [Int] = []
     var timer: Timer!
     var counter = 0
     @IBOutlet var editButton: UIButton!

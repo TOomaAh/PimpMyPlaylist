@@ -9,6 +9,7 @@ import UIKit
 
 class MovieViewController: UIViewController, UITableViewDelegate {
     let Api = ApiService()
+    let WatchListApi = WatchListService()
     private var movie:TmdbMovie!
     var watchlistMoviesId: [Int] = []
     let imageService: ImageService = ImageService()
@@ -118,10 +119,10 @@ class MovieViewController: UIViewController, UITableViewDelegate {
         let idFile = getDocumentsDirectory().appendingPathComponent("id.txt")
         let id = try! String(contentsOf: idFile)
         let userId = Int(id)
-        Api.postMovie(movie: movie, userId: userId!) { [self] (result) in
+        WatchListApi.postMovie(movie: movie, userId: userId!) { [self] (result) in
             switch result{
             case .success(let film):
-                Api.getAllMovie(id:id) { (result) in
+                WatchListApi.getAllMovie(id:id) { (result) in
                     switch result{
                     case .success(let moviesData):
                         let array = moviesData.arrayWatchListMovies
@@ -129,7 +130,7 @@ class MovieViewController: UIViewController, UITableViewDelegate {
                             watchlistMoviesId.append(movie.id!)
                         }
                         watchlistMoviesId.append(film.id)
-                        Api.updateUserMovie(movieId: watchlistMoviesId) { (result) in
+                        WatchListApi.updateUserMovie(movieId: watchlistMoviesId) { (result) in
                             switch result{
                             case .success( _):
                                 break
@@ -183,9 +184,6 @@ extension MovieViewController : UITableViewDataSource{
             case 3:
                 cell.labelKey.text = NSLocalizedString("controller.movie.popularity", comment: "")
                 cell.labelValue.text = String(format: "%f", movie.popularity!)
-            case 4:
-                cell.labelKey.text = NSLocalizedString("controller.movie.genre", comment: "")
-                cell.labelValue.text = String(format: "%d", movie.genre_ids)
             default:
                 print("hi")
             }

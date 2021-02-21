@@ -8,7 +8,7 @@
 import UIKit
 
 class CreateViewController: UIViewController {
-    let api = ApiService()
+    let UserApi = UserService()
     @IBOutlet var usernameField: UITextField!
     @IBOutlet var emailField: UITextField!
     @IBOutlet var passwordField: UITextField!
@@ -47,7 +47,7 @@ class CreateViewController: UIViewController {
         
         //Call api pour créer le compte, sur retour de l'api
         //changer de view.
-        api.registerUser(username: usernameField.text!, email: emailField.text!, password: passwordField.text!) { (result) in
+        UserApi.registerUser(username: usernameField.text!, email: emailField.text!, password: passwordField.text!) { (result) in
             switch result{
             case.success(let user):
                 let token = user.jwt
@@ -65,8 +65,8 @@ class CreateViewController: UIViewController {
                     print("Failed to fetch token from API")
                 }
                 DispatchQueue.main.async {
-                    let menu = MenuViewController(nibName: "MenuViewController", bundle: nil)
-                    self.navigationController?.pushViewController(menu, animated: true)
+                    let login = LoginViewController(nibName: "LoginViewController", bundle: nil)
+                    self.navigationController?.pushViewController(login, animated: true)
                 }
             break
             case .failure(let error):
