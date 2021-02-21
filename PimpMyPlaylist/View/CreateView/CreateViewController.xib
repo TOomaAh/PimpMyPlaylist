@@ -10,9 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateViewController" customModule="PimpMyPlaylist" customModuleProvider="target">
             <connections>
-                <outlet property="confirmField" destination="VYl-sW-sXb" id="HWJ-qJ-9JX"/>
                 <outlet property="createButton" destination="9FR-xr-qtM" id="fsE-BV-arc"/>
                 <outlet property="emailField" destination="Q0n-fk-Qrs" id="k0m-B9-iLO"/>
+                <outlet property="loginButton" destination="6sb-wW-ps3" id="Tbe-Cx-Lcx"/>
                 <outlet property="passwordField" destination="UFK-Yy-C8s" id="yW2-b4-90v"/>
                 <outlet property="usernameField" destination="KTN-Tj-ftA" id="AvW-aI-ZDi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -38,13 +38,8 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VYl-sW-sXb">
-                    <rect key="frame" x="80" y="466" width="254" height="34"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9FR-xr-qtM">
-                    <rect key="frame" x="80" y="580" width="254" height="30"/>
+                    <rect key="frame" x="80" y="581" width="254" height="30"/>
                     <color key="backgroundColor" systemColor="secondaryLabelColor"/>
                     <state key="normal" title="Create">
                         <color key="titleColor" systemColor="systemOrangeColor"/>
@@ -53,25 +48,35 @@
                         <action selector="onClick:" destination="-1" eventType="touchUpInside" id="Vvk-rR-0rm"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sb-wW-ps3">
+                    <rect key="frame" x="80" y="651" width="254" height="30"/>
+                    <color key="backgroundColor" systemColor="secondaryLabelColor"/>
+                    <state key="normal" title="Login">
+                        <color key="titleColor" systemColor="systemOrangeColor"/>
+                    </state>
+                    <connections>
+                        <action selector="goToLogin:" destination="-1" eventType="touchUpInside" id="5nl-4y-X8f"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="labelColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KTN-Tj-ftA" secondAttribute="trailing" constant="80" id="0Lo-78-3kj"/>
-                <constraint firstItem="VYl-sW-sXb" firstAttribute="top" secondItem="UFK-Yy-C8s" secondAttribute="bottom" constant="40" id="172-fL-VdR"/>
                 <constraint firstItem="UFK-Yy-C8s" firstAttribute="top" secondItem="Q0n-fk-Qrs" secondAttribute="bottom" constant="40" id="3Vd-sP-AAR"/>
                 <constraint firstItem="UFK-Yy-C8s" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="80" id="3hX-89-ggl"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Q0n-fk-Qrs" secondAttribute="trailing" constant="80" id="5XQ-gD-8cD"/>
                 <constraint firstItem="Q0n-fk-Qrs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="80" id="C3s-mZ-w8A"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UFK-Yy-C8s" secondAttribute="trailing" constant="80" id="DN0-cv-8Mj"/>
-                <constraint firstItem="9FR-xr-qtM" firstAttribute="top" secondItem="VYl-sW-sXb" secondAttribute="bottom" constant="80" id="G2l-9Z-L5j"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9FR-xr-qtM" secondAttribute="trailing" constant="80" id="QIg-eE-HGu"/>
                 <constraint firstItem="Q0n-fk-Qrs" firstAttribute="top" secondItem="KTN-Tj-ftA" secondAttribute="bottom" constant="40" id="X7A-L5-Rbe"/>
                 <constraint firstItem="KTN-Tj-ftA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="80" id="XCi-8j-JPz"/>
+                <constraint firstItem="9FR-xr-qtM" firstAttribute="top" secondItem="UFK-Yy-C8s" secondAttribute="bottom" constant="155" id="Xpu-he-Qmv"/>
+                <constraint firstItem="6sb-wW-ps3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="80" id="kLI-bF-zIV"/>
                 <constraint firstItem="KTN-Tj-ftA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="200" id="lQ2-uv-vFt"/>
                 <constraint firstItem="9FR-xr-qtM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="80" id="log-hc-qqs"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VYl-sW-sXb" secondAttribute="trailing" constant="80" id="quj-nq-Jqj"/>
-                <constraint firstItem="VYl-sW-sXb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="80" id="uAf-75-KFx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6sb-wW-ps3" secondAttribute="trailing" constant="80" id="uCr-Hv-sYQ"/>
+                <constraint firstItem="6sb-wW-ps3" firstAttribute="top" secondItem="9FR-xr-qtM" secondAttribute="bottom" constant="40" id="zol-Fc-Kdp"/>
             </constraints>
             <point key="canvasLocation" x="139" y="57"/>
         </view>

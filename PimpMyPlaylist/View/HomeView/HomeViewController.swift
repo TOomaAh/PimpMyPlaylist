@@ -14,19 +14,23 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let langStr = Locale.current.languageCode else { return }
-        
-        print(langStr)
+        let account = self.getDocumentsDirectory().appendingPathComponent("account.txt")
         let url = self.getDocumentsDirectory().appendingPathComponent("login.txt")
         do {
             let input = try String(contentsOf: url)
-            if input == "isConnected" {
-                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
+            let account = try String(contentsOf: account)
+            if account == "true" {
+                if input == "isConnected" {
+                    self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
+                }
+            } else {
+                let create = CreateViewController(nibName: "CreateViewController", bundle: nil)
+                self.navigationController?.pushViewController(create, animated: true)
             }
             
         } catch {
-            let login = LoginViewController(nibName: "LoginViewController", bundle: nil)
-            self.navigationController?.pushViewController(login, animated: true)
+            let create = CreateViewController(nibName: "CreateViewController", bundle: nil)
+            self.navigationController?.pushViewController(create, animated: true)
         }
     }
 

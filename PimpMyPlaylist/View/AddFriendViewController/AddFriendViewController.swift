@@ -15,7 +15,7 @@ class AddFriendViewController: UIViewController, AddFriendCellDelegate {
     @IBOutlet var tableView: UITableView!
     var userArray:[User] = []
     var friendsId:[Int] = []
-    var api : ApiService = ApiService()
+    var api : FriendService = FriendService()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.textField.delegate = self

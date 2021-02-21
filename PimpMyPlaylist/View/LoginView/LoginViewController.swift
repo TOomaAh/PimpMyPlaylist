@@ -39,6 +39,7 @@ class LoginViewController: UIViewController {
                 let tokenFile = getDocumentsDirectory().appendingPathComponent("token.txt")
                 let idFile = getDocumentsDirectory().appendingPathComponent("id.txt")
                 let login = self.getDocumentsDirectory().appendingPathComponent("login.txt")
+                let account = self.getDocumentsDirectory().appendingPathComponent("account.txt")
 
                 do {
                     try token.write(to: tokenFile, atomically: true, encoding: String.Encoding.utf8)
@@ -48,6 +49,13 @@ class LoginViewController: UIViewController {
                     
                     let input = "isConnected"
                     try input.write(to: login, atomically: true, encoding: String.Encoding.utf8)
+                   
+                    var accountString = try String(contentsOf: account)
+                    if  accountString != "true" {
+                        accountString = "true"
+                        try accountString.write(to: account, atomically: true, encoding: String.Encoding.utf8)
+                    }                    
+                    
                 } catch {
                     print("Failed to fetch token from API")
                 }
