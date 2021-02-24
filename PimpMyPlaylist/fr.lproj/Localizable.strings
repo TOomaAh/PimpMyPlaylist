@@ -24,11 +24,23 @@
 "controller.movie.description" = "Voir les détails";
 
 //Login
-"controller.login.logbutton" = "Se connecter";
+"controller.login.logButton" = "Se connecter";
 
 //Create
 "controller.create.createButton" = "Créer";
+"controller.create.loginButton" = "Se connecter";
 
 //Edit
 "controller.edit.watchlistLabel" = "Ma Liste";
+"controller.edit.watchlistLabelNotOwned" = "Liste";
 "controller.edit.title" = "Editer ma Liste";
+
+//Add friend cell
+"controller.addFriendCell.add" = "Ajouter";
+"controller.addFriendCell.added" = "Ajouté";
+
+//Friend cell view
+"controller.friendCell.watchlist" = "Voir watchlist";
+
+//Friend View
+"controller.friendView.search" = "Rechercher des amis";

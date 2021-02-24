@@ -22,6 +22,9 @@ class HomeViewController: UIViewController {
             if account == "true" {
                 if input == "isConnected" {
                     self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
+                }else{
+                    let login = LoginViewController(nibName: "LoginViewController", bundle: nil)
+                    self.navigationController?.pushViewController(login, animated: true)
                 }
             } else {
                 let create = CreateViewController(nibName: "CreateViewController", bundle: nil)

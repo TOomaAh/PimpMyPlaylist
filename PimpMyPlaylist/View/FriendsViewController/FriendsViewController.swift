@@ -18,6 +18,7 @@ class FriendsViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.searchFriendsButton.setTitle(NSLocalizedString("controller.friendView.search", comment: ""), for: .normal)
         self.getAllFriends()
         self.tableView.dataSource = self
         self.tableView.delegate = self

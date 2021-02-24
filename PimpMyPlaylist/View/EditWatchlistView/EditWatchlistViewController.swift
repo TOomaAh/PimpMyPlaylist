@@ -30,8 +30,12 @@ class EditWatchlistViewController: UIViewController, UITableViewDelegate, Custom
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Friends", style: .plain, target: self, action: #selector(addFriends))
         super.viewDidLoad()
-        self.title = NSLocalizedString("controller.edit.title", comment: "")
-        self.watchlistLabel.text = NSLocalizedString("controller.edit.watchlistLabel", comment: "")
+        if owned {
+            self.watchlistLabel.text = NSLocalizedString("controller.edit.watchlistLabel", comment: "")
+        } else{
+            self.watchlistLabel.text = NSLocalizedString("controller.edit.watchlistLabelNotOwned", comment: "")
+        }
+        
         getAllWatchListMovie()
         // Do any additional setup after loading the view.
     }

@@ -31,7 +31,7 @@ class ApiService {
     
     
     func getMoviesFromResearch(filmName: String, completion: @escaping (Result<MoviesData, Error>) ->Void){
-       let formatFileName = filmName.replacingOccurrences(of: " ", with: "%20")
+        let formatFileName = filmName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
 
         guard var langStr = Locale.current.languageCode else { return }
         if (langStr.contains("en")) {

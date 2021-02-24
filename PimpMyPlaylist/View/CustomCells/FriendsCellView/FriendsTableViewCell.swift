@@ -21,6 +21,8 @@ class FriendsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.watchlistbutton.setTitle(NSLocalizedString("controller.friendCell.watchlist", comment: ""), for: .normal)
         // Initialization code
     }
 

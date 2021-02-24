@@ -81,7 +81,8 @@ extension AddFriendViewController: UITableViewDataSource {
                         switch result{
                         case .success(_):
                             DispatchQueue.main.async {
-                                cell.addButton.setTitle("Added", for: .normal)
+                                let friendView = FriendsViewController(nibName: "FriendsViewController", bundle: nil)
+                                self.navigationController?.pushViewController(friendView, animated: true)
                             }
                             break
                         case .failure(let e):
@@ -116,13 +117,15 @@ extension AddFriendViewController : UITextFieldDelegate, UITableViewDelegate{
                     switch result{
                     case.success(let user):
                         self.userArray.removeAll()
-                        self.userArray.append(user[0])
-                        self.tableView.dataSource = self
-                        self.tableView.delegate = self
-                        self.registerTableViewCells()
-                        self.tableView.tableFooterView = UIView()
-                        self.tableView.backgroundColor = UIColor.clear
-                        self.tableView.reloadData()
+                        if !user.isEmpty {
+                            self.userArray.append(user[0])
+                            self.tableView.dataSource = self
+                            self.tableView.delegate = self
+                            self.registerTableViewCells()
+                            self.tableView.tableFooterView = UIView()
+                            self.tableView.backgroundColor = UIColor.clear
+                            self.tableView.reloadData()
+                        }
                         //nom du user dans la cell.
                         break
                     case .failure(let error):

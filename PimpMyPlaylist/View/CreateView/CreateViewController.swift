@@ -18,6 +18,7 @@ class CreateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.createButton.setTitle(NSLocalizedString("controller.create.createButton", comment: ""), for: .normal)
+        self.loginButton.setTitle(NSLocalizedString("controller.create.loginButton", comment: ""), for: .normal)
         // Do any additional setup after loading the view.
     }
 
@@ -42,15 +43,12 @@ class CreateViewController: UIViewController {
         guard passwordField.text != nil else {
             return
         }
-        guard confirmField.text != nil else {
-            return
-        }
         
         //Call api pour créer le compte, sur retour de l'api
         //changer de view.
         UserApi.registerUser(username: usernameField.text!, email: emailField.text!, password: passwordField.text!) { (result) in
             switch result{
-            case.success(let user):
+            case.success(_):
                 let account = getDocumentsDirectory().appendingPathComponent("account.txt")
                 do {
                     let string = "true"

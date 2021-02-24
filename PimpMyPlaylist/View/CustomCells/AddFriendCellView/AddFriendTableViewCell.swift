@@ -19,7 +19,7 @@ class AddFriendTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        //self.addButton.setTitle("Add", for: .normal)
+        self.addButton.setTitle(NSLocalizedString("controller.addFriendCell.add", comment: ""), for: .normal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
